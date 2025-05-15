@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar - MatchBusiness</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Registrar</h2>
+    <form th:action="@{/register}" th:object="${usuario}" method="post">
+      <div>
+        <label for="nome">Nome:</label>
+        <input type="text" th:field="*{nome}" id="nome" required>
+      </div>
+      <div>
+        <label for="email">E-mail:</label>
+        <input type="email" th:field="*{email}" id="email" required>
+      </div>
+      <div>
+        <label for="senha">Senha:</label>
+        <input type="password" th:field="*{senha}" id="senha" required>
+      </div>
+      <button type="submit">Registrar</button>
+    </form>
+    <p>Já tem uma conta? <a th:href="@{/login}">Entrar</a></p>
+  </div>
+</body>
+</html>

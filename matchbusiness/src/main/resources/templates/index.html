@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - MatchBusiness</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- O atributo th:text permite injetar a mensagem vinda do controlador -->
+    <h2 th:text="${message}">Bem-vindo ao MatchBusiness</h2>
+    <p>Esta é a página inicial da aplicação. Aqui você pode visualizar informações e acessar outras funcionalidades.</p>
+  </div>
+</body>
+</html>

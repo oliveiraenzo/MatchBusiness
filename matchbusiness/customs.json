@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:src": {
+            "context": "script"
+        },
+        "th:href": {
+            "context": "link"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - MatchBusiness</title>
+  <!-- Referência à folha de estilo -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <!-- Referência ao arquivo JavaScript -->
+  <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <!-- O formulário é enviado para /login, que é interceptado pelo Spring Security -->
+    <form th:action="@{/login}" method="post">
+      <div>
+        <label for="email">E-mail:</label>
+        <!-- Note: o Spring Security utiliza o campo 'username' para o login -->
+        <input type="email" id="email" name="username" required>
+      </div>
+      <div>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="password" required>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+    <p>Ainda não tem uma conta? <a th:href="@{/register}">Registrar</a></p>
+  </div>
+</body>
+</html>
