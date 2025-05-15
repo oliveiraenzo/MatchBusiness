@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.security.core.Authentication;
 
 /**
  *
@@ -34,13 +35,15 @@ public class LoginController {
      * O objeto Principal contém dados do usuário autenticado.
      */
     @GetMapping("/home")
-    public String home(Model model, Principal principal) {
-        // Exemplo: recupera o e-mail do usuário autenticado
-        String email = principal.getName();
-        
-        // Você pode recuperar mais dados do usuário se necessário, através do serviço.
-        model.addAttribute("message", "Bem-vindo ao MatchBusiness, " + email + "!");
-        return "index"; // direciona para o template src/main/resources/templates/index.html
+    public String home(Model model, Authentication authentication) {
+        if (authentication != null && authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_MASTER"))) {
+            // Se o usuário for master, redireciona para a página administrativa
+            return "redirect:/master/users";
+        }
+        // Caso contrário, continua na home comum
+        model.addAttribute("message", "Bem-vindo ao MatchBusiness, " + authentication.getName() + "!");
+        return "index";
     }
 
     /**

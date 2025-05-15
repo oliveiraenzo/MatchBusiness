@@ -12,4 +12,5 @@ import com.matchbusiness.matchbusiness.model.Usuario;
  */
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Usuario findByEmail(String email);
+    Usuario findBySuperMasterTrue(); // retorna um usuário cujo campo 'superMaster' esteja true, se existir
 }

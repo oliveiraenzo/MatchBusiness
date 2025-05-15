@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários - Administração</title>
+    <!-- Link para o CSS que você utiliza -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Usuários</h2>
+
+        <!-- Exibe uma mensagem de erro caso o parâmetro 'errorMessage' esteja presente -->
+        <div th:if="${errorMessage != null}" style="color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <!-- Link para o formulário de novo usuário -->
+        <a th:href="@{/master/users/new}" class="btn">Novo Usuário</a>
+
+        <!-- Tabela de usuários -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Master</th>
+                    <th>SuperMaster</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itera sobre a lista de usuários enviada do controller -->
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}">1</td>
+                    <td th:text="${user.nome}">Nome Exemplo</td>
+                    <td th:text="${user.email}">email@exemplo.com</td>
+                    <td th:text="${user.master}">false</td>
+                    <td th:text="${user.superMaster}">false</td>
+                    <td>
+                        <!-- Links para ações: editar, excluir, promover e despromover.  
+                             Usamos th:href para construir a URL dinamicamente com base no ID do usuário -->
+                        <a th:href="@{'/master/users/' + ${user.id} + '/edit'}">Editar</a> |
+                        <a th:href="@{'/master/users/' + ${user.id} + '/delete'}" disabled 
+                           th:if="${user.superMaster}">Excluir</a>
+                        <a th:if="${!user.superMaster}" th:href="@{'/master/users/' + ${user.id} + '/delete'}">Excluir</a>
+                        <br/>
+                        <span th:if="${!user.master}">
+                            <a th:href="@{'/master/users/' + ${user.id} + '/promote'}">Promover</a>
+                        </span>
+                        <span th:if="${user.master}">
+                            <a th:href="@{'/master/users/' + ${user.id} + '/demote'}">Despromover</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

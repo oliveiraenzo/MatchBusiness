@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${usuario.id} == null ? 'Novo Usuário' : 'Editar Usuário'}">Formulário de Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${usuario.id} == null ? 'Novo Usuário' : 'Editar Usuário'">Formulário de Usuário</h2>
+    <!-- O atributo th:object vincula o objeto Usuario ao formulário -->
+    <form th:action="${usuario.id} == null ? '@{/master/users}' : @{'/master/users/' + ${usuario.id}}" th:object="${usuario}" method="post">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required/>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required/>
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" th:field="*{senha}" placeholder="Digite a senha se desejar alterar"/>
+        </div>
+        <div>
+            <label for="master">É Master?</label>
+            <!-- Campo checkbox para definir se o usuário é master -->
+            <input type="checkbox" id="master" th:field="*{master}"/>
+        </div>
+        <div>
+            <!-- Se desejar, pode adicionar um campo para superMaster, mas geralmente isso é controlado pelo sistema -->
+            <label for="superMaster">Super Master:</label>
+            <input type="checkbox" id="superMaster" th:field="*{superMaster}" disabled="disabled"/>
+            <!-- Obs.: O superMaster pode ser exibido para informação, mas normalmente não se altera via formulário. -->
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/master/users}">Voltar</a>
+</div>
+</body>
+</html>
