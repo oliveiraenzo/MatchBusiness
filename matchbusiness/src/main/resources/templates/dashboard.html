@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Dashboard</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1>Dashboard do MatchBusiness</h1>
-    <p>Você está logado!</p>
-    <a th:href="@{/logout}">Sair</a>
+  <h1>Dashboard do MatchBusiness</h1>
+  <p>Você está logado!</p>
+  
+  <!-- Exibição condicionada dos botões -->
+  <div>
+    <!-- Se o usuário NÃO for super (ou seja, se currentUser.superMaster for false),
+         mostramos o botão "Configurações pessoais". Isso vale tanto para usuário comum quanto para master comum. -->
+    <span th:if="${currentUser != null and !currentUser.superMaster}">
+      <a th:href="@{/user/configuracoes}">Configurações pessoais</a>
+    </span>
+    
+    <!-- Se o usuário for master (comum ou super), ou seja, se currentUser.master for true,
+         mostramos o botão "Gerenciar Usuários". -->
+    <span th:if="${currentUser != null and currentUser.master}">
+      <a th:href="@{/master/users}">Gerenciar Usuários</a>
+    </span>
+  </div>
+  
+  <!-- Botão de Logout via formulário POST -->
+  <form id="logoutForm" th:action="@{/logout}" method="post" style="display:none;">
+    <!-- Inclui o token CSRF -->
+    <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+  </form>
+  <a href="#" onclick="document.getElementById('logoutForm').submit(); return false;">Sair</a>
 </body>
 </html>

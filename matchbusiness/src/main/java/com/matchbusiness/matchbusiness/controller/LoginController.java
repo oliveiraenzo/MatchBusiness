@@ -19,7 +19,6 @@ import org.springframework.security.core.Authentication;
  *
  * @author Heitor
  */
-import java.security.Principal;
 
 @Controller
 public class LoginController {
