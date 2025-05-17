@@ -1,56 +1,325 @@
-/* Define estilos básicos para o body */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos gerais do body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 20px;
+  background-color: #D9F2DC;
+  color: #4a4a4a;
+  line-height: 1.6;
+  padding-top: 80px; /* para compensar o header fixo */
 }
 
-/* Estiliza o container centralizado */
+/* Container centralizado */
 .container {
-  width: 400px;
-  margin: 50px auto;
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Centraliza o título */
-h2 {
+/* Cabeçalho fixo */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #D9F2DC;
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Efeito ao rolar */
+.header.scrolled {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+  color: #1c4532;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Navegação */
+.nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #2E2E2E;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #34d399;
+}
+
+/* Botões */
+.btn {
+  background-color: #A3D9A5;
+  color: #2D2D2D;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #2fbf85;
+}
+
+.btn-outline {
+  border: 2px solid #2D2D2D;
+  background-color: transparent;
+  color: #2D2D2D;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background-color: #34d399;
+  color: white;
+}
+
+/* Seção Hero */
+.hero {
+  background-color: #D9F2DC;
+  padding: 3rem 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.separacao1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.text {
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  flex: 1 1 45%;
+  min-width: 280px;
+}
+
+.hero .text h1 {
+  font-size: 2.5rem;
+  color: #2e2e2e;
+}
+
+.hero .text span {
+  color: #A3D9A5;
+}
+
+.hero p {
+  margin: 1rem 0;
+  color: #4a4a4a;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Seção Como Funciona */
+.como-funciona {
+  padding: 3rem 0;
   text-align: center;
 }
 
-/* Estilo para os formulários */
-form div {
-  margin-bottom: 15px;
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: space-between;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 280px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+/* Métricas */
+.metricas {
+  background-color: #2D2D2D;
+  color: white;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.metricas1 {
+  display: flex;
+  justify-content: space-around;
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  max-width: 900px;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4285f4;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
+.metrica h3 {
+  font-size: 2.5rem;
+  color: #A3D9A5;
+  margin-bottom: 0.3rem;
 }
 
-button:hover {
-  background-color: #357ae8;
+.metrica p {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Depoimentos */
+.depoimentos {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.depoimentos .cards {
+  justify-content: center;
+}
+
+.depoimentos .card {
+  max-width: 320px;
+  background-color: white;
+}
+
+/* Call to Action */
+.cta {
+  background-color: #D9F2DC;
+  color: #2d2d2d;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  margin-bottom: 1.5rem;
+}
+
+.cta .button a {
+  font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #2D2D2D;
+  color: white;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.footer-content > div {
+  flex: 1 1 200px;
+}
+
+.footer-content h4 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-content ul {
+  list-style: none;
+}
+
+.footer-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-content ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}
+
+/* Responsividade simples */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .hero .text {
+    flex-basis: 100%;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .metricas1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-content {
+    flex-direction: column;
+  }
 }

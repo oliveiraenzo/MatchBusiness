@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>MatchBusiness - Bem-vindo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchBusiness</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
 </head>
 <body>
-    <h1>Bem-vindo ao MatchBusiness</h1>
-    <a th:href="@{/login}">Entrar</a>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">LOGO</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Sobre</a>
+      <a href="#">Dashboard</a>
+      <button class="btn">Entrar</button>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="separacao1">
+            <div class="text">
+                <h1>Conecte-se com <strong>profissionais</strong>, <span>um café de cada vez.</span></h1>
+                <p>MatchBusiness conecta profissionais com interesses comuns para networking estratégico em ambientes descontraídos.</p>
+                <div class="buttons">
+                    <a th:href="@{/cadastro}" class="btn">Cadastre-se e encontre seu match</a>
+                    <a th:href="@{/sobre}" class="btn btn-outline">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="como-funciona">
+    <div class="container">
+        <h2>Como Funciona</h2>
+        <p>A MatchBusiness torna o networking profissional mais eficiente e agradável.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>Matches Estratégicos</h3>
+                <p>Conectamos perfis com interesses complementares.</p>
+            </div>
+            <div class="card">
+                <h3>Chat Integrado</h3>
+                <p>Converse diretamente com seu match.</p>
+            </div>
+            <div class="card">
+                <h3>Cafés Recomendados</h3>
+                <p>Indicamos locais estratégicos para encontros.</p>
+            </div>
+            <div class="card">
+                <h3>Agendamento Simples</h3>
+                <p>Integração com calendário e organização facilitada.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="metricas">
+  <div class="container metricas1">
+    <div class="metrica">
+      <h3>5,000+</h3>
+      <p>Profissionais Conectados</p>
+    </div>
+    <div class="metrica">
+      <h3>10,000+</h3>
+      <p>Cafés Realizados</p>
+    </div>
+    <div class="metrica">
+      <h3>85%</h3>
+      <p>Taxa de Match Positivo</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="depoimentos">
+    <div class="container">
+        <h2>O Que Nossos Usuários Dizem</h2>
+        <div class="cards">
+            <div class="card">
+                <strong>Carlos Mendes</strong>
+                <p>"O app mudou minha forma de networking! Fiz conexões valiosas."</p>
+            </div>
+            <div class="card">
+                <strong>Ana Lucia Ferreira</strong>
+                <p>"Ambiente incrível para conhecer pessoas com interesses parecidos!"</p>
+            </div>
+            <div class="card">
+                <strong>Roberto Santos</strong>
+                <p>"Fiz parcerias importantes graças aos cafés promovidos!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Pronto para expandir sua rede profissional?</h2>
+        <p>Junte-se a milhares de profissionais que já estão aproveitando o poder do networking estratégico.</p>
+        <div class="button">
+            <a th:href="@{/cadastro}" class="btn">Cadastre-se Gratuitamente</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h4>MatchBusiness</h4>
+            <p>Conexões profissionais ao redor do café.</p>
+        </div>
+        <div>
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                <li><a th:href="@{/dashboard}">Dashboard</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Recursos</h4>
+            <ul>
+                <li><a th:href="@{/blog}">Blog</a></li>
+                <li><a th:href="@{/faq}">FAQ</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contato</h4>
+            <p>contato@matchbusiness.com<br>+55 (11) 99999-9999</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 MatchBusiness. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
 </body>
 </html>
