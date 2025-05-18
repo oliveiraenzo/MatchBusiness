@@ -1,154 +1,252 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MatchBusiness</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <script>
-        window.addEventListener("scroll", function () {
-            const header = document.querySelector(".header");
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
 </head>
+
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="logo">LOGO</div>
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Sobre</a>
-      <a href="#">Dashboard</a>
-      <button class="btn">Entrar</button>
-    </nav>
-  </div>
-</header>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo">
+            </div>
+            <nav class="nav">
+                <a href="#">Home</a>
+                <a th:href="@{/sor}">Sobre</a>
+                <a th:href="@{/dashboard}">Dashboard</a>
+                <a th:href="@{/login}" class="btn">Entrar</a>
+            </nav>
+        </div>
+    </header>
 
-
-<section class="hero">
-    <div class="container hero-content">
-        <div class="separacao1">
-            <div class="text">
-                <h1>Conecte-se com <strong>profissionais</strong>, <span>um café de cada vez.</span></h1>
-                <p>MatchBusiness conecta profissionais com interesses comuns para networking estratégico em ambientes descontraídos.</p>
-                <div class="buttons">
-                    <a th:href="@{/cadastro}" class="btn">Cadastre-se e encontre seu match</a>
-                    <a th:href="@{/sobre}" class="btn btn-outline">Saiba mais</a>
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="separacao1">
+                <div class="text fade-in">
+                    <h1>Conecte-se com <strong>profissionais</strong>, <span>um café de cada vez.</span></h1>
+                    <p>MatchBusiness conecta profissionais com interesses comuns para networking estratégico em
+                        ambientes descontraídos.</p>
+                    <div class="buttons">
+                        <a th:href="@{/register}" class="btn">Cadastre-se e encontre seu match</a>
+                    </div>
+                </div>
+                <div class="icon-circle fade-in">
+                    <!-- SVG da xícara com vapor (2×) -->
+                    <svg class="icon-main" width="600" height="600" viewBox="0 0 500 500"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <!-- Vapor -->
+                        <rect x="140" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
+                        <rect x="200" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
+                        <rect x="260" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
+                        <!-- Caneca menor -->
+                        <path d="M150 175 h150 v100 a40 40 0 0 1 -40 40 h-70 a40 40 0 0 1 -40 -40 v-100 z"
+                            stroke="#A6DAB3" stroke-width="30" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <!-- Alça da caneca -->
+                        <path d="M300 190 h20 a40 40 0 0 1 0 80 h-20" stroke="#A6DAB3" stroke-width="30" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="icon-overlay overlay-calendar fade-in">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5 c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z" />
+                        </svg>
+                    </div>
+                    <div class="icon-overlay overlay-user fade-in">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="como-funciona">
-    <div class="container">
-        <h2>Como Funciona</h2>
-        <p>A MatchBusiness torna o networking profissional mais eficiente e agradável.</p>
-        <div class="cards">
-            <div class="card">
-                <h3>Matches Estratégicos</h3>
-                <p>Conectamos perfis com interesses complementares.</p>
-            </div>
-            <div class="card">
-                <h3>Chat Integrado</h3>
-                <p>Converse diretamente com seu match.</p>
-            </div>
-            <div class="card">
-                <h3>Cafés Recomendados</h3>
-                <p>Indicamos locais estratégicos para encontros.</p>
-            </div>
-            <div class="card">
-                <h3>Agendamento Simples</h3>
-                <p>Integração com calendário e organização facilitada.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    <section class="como-funciona">
+        <div class="container">
+            <h2 class="fade-in">Como Funciona</h2>
+            <p class="fade-in">A MatchBusiness torna o networking profissional mais eficiente e agradável.</p>
+            <div class="cards">
 
-<section class="metricas">
-  <div class="container metricas1">
-    <div class="metrica">
-      <h3>5,000+</h3>
-      <p>Profissionais Conectados</p>
-    </div>
-    <div class="metrica">
-      <h3>10,000+</h3>
-      <p>Cafés Realizados</p>
-    </div>
-    <div class="metrica">
-      <h3>85%</h3>
-      <p>Taxa de Match Positivo</p>
-    </div>
-  </div>
-</section>
+                <!-- Matches Estratégicos -->
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="3" fill="none" stroke="#A3D9A5" stroke-width="2" />
+                            <path d="M7 20c0-2.76 2.24-5 5-5s5 2.24 5 5" fill="none" stroke="#A3D9A5"
+                                stroke-width="2" />
+                            <path d="M17 11h-2v2h-2v-2H11v-2h2V7h2v2h2v2z" fill="#A3D9A5" />
+                        </svg>
+                    </div>
+                    <h3>Matches Estratégicos</h3>
+                    <p>
+                        Nosso algoritmo identifica profissionais com interesses complementares, criando conexões com
+                        potencial para parcerias e negócios.
+                    </p>
+                </div>
 
+                <!-- Chat Integrado -->
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M4 4h16v12H6l-4 4V4z" fill="none" stroke="#A3D9A5" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>Chat Integrado</h3>
+                    <p>
+                        Converse diretamente pela plataforma para combinar detalhes do encontro e iniciar uma conexão
+                        antes mesmo do café.
+                    </p>
+                </div>
 
-<section class="depoimentos">
-    <div class="container">
-        <h2>O Que Nossos Usuários Dizem</h2>
-        <div class="cards">
-            <div class="card">
-                <strong>Carlos Mendes</strong>
-                <p>"O app mudou minha forma de networking! Fiz conexões valiosas."</p>
+                <!-- Cafés Recomendados -->
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                                fill="none" stroke="#A3D9A5" stroke-width="2" />
+                            <circle cx="12" cy="9" r="2.5" fill="none" stroke="#A3D9A5" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>Cafés Recomendados</h3>
+                    <p>
+                        Sugerimos locais estratégicos baseados na localização dos dois participantes, com ambiente
+                        adequado para networking.
+                    </p>
+                </div>
+
+                <!-- Agendamento Simples -->
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#A3D9A5"
+                                stroke-width="2" />
+                            <line x1="3" y1="10" x2="21" y2="10" stroke="#A3D9A5" stroke-width="2" />
+                            <line x1="7" y1="2" x2="7" y2="6" stroke="#A3D9A5" stroke-width="2" />
+                            <line x1="17" y1="2" x2="17" y2="6" stroke="#A3D9A5" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>Agendamento Simples</h3>
+                    <p>
+                        Integração com calendários para facilitar a organização dos encontros sem conflitos de agenda.
+                    </p>
+                </div>
+
             </div>
-            <div class="card">
-                <strong>Ana Lucia Ferreira</strong>
-                <p>"Ambiente incrível para conhecer pessoas com interesses parecidos!"</p>
-            </div>
-            <div class="card">
-                <strong>Roberto Santos</strong>
-                <p>"Fiz parcerias importantes graças aos cafés promovidos!"</p>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="cta">
-    <div class="container">
-        <h2>Pronto para expandir sua rede profissional?</h2>
-        <p>Junte-se a milhares de profissionais que já estão aproveitando o poder do networking estratégico.</p>
-        <div class="button">
-            <a th:href="@{/cadastro}" class="btn">Cadastre-se Gratuitamente</a>
-        </div>
-    </div>
-</section>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h4>MatchBusiness</h4>
-            <p>Conexões profissionais ao redor do café.</p>
+    <section class="metricas">
+        <div class="container metricas1">
+            <div class="metrica fade-in">
+                <h3>5,000+</h3>
+                <p>Profissionais Conectados</p>
+            </div>
+            <div class="metrica fade-in">
+                <h3>10,000+</h3>
+                <p>Cafés Realizados</p>
+            </div>
+            <div class="metrica fade-in">
+                <h3>85%</h3>
+                <p>Taxa de Match Positivo</p>
+            </div>
         </div>
-        <div>
-            <h4>Links Rápidos</h4>
-            <ul>
-                <li><a th:href="@{/}">Home</a></li>
-                <li><a th:href="@{/sobre}">Sobre Nós</a></li>
-                <li><a th:href="@{/dashboard}">Dashboard</a></li>
-            </ul>
+    </section>
+
+    <section class="depoimentos">
+        <div class="container">
+            <h2 class="fade-in">O Que Nossos Usuários Dizem</h2>
+            <div class="cards">
+                <div class="card fade-in">
+                    <strong>Carlos Mendes</strong>
+                    <p>"O app mudou minha forma de networking! Fiz conexões valiosas."</p>
+                </div>
+                <div class="card fade-in">
+                    <strong>Ana Lucia Ferreira</strong>
+                    <p>"Ambiente incrível para conhecer pessoas com interesses parecidos!"</p>
+                </div>
+                <div class="card fade-in">
+                    <strong>Roberto Santos</strong>
+                    <p>"Fiz parcerias importantes graças aos cafés promovidos!"</p>
+                </div>
+            </div>
         </div>
-        <div>
-            <h4>Recursos</h4>
-            <ul>
-                <li><a th:href="@{/blog}">Blog</a></li>
-                <li><a th:href="@{/faq}">FAQ</a></li>
-            </ul>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Pronto para expandir sua rede profissional?</h2>
+            <p class="fade-in">Junte-se a milhares de profissionais que já estão aproveitando o poder do networking
+                estratégico.</p>
+            <div class="button fade-in">
+                <a th:href="@{/register}" class="btn">Cadastre-se Gratuitamente</a>
+            </div>
         </div>
-        <div>
-            <h4>Contato</h4>
-            <p>contato@matchbusiness.com<br>+55 (11) 99999-9999</p>
+    </section>
+
+    <footer class="footer fade-in">
+        <div class="container footer-content">
+            <div>
+                <h4>MatchBusiness</h4>
+                <p>Conexões profissionais ao redor do café.</p>
+            </div>
+            <div>
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                    <li><a th:href="@{/dashboard}">Dashboard</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a th:href="@{/blog}">Blog</a></li>
+                    <li><a th:href="@{/faq}">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p>contato@matchbusiness.com<br>+55 (11) 4002-8922</p>
+            </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2024 MatchBusiness. Todos os direitos reservados.</p>
-    </div>
-</footer>
+        <div class="footer-bottom">
+            <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // header scroll
+        window.addEventListener("scroll", () => {
+            document.querySelector(".header")
+                .classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        // fade-in ao scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+        });
+    </script>
 
 </body>
+
 </html>

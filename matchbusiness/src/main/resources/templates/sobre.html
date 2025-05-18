@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil - MatchBusiness</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo">
+        </div>
+        <nav class="nav">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/sobre}">Sobre</a>
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/login}" class="btn">Entrar</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container profile-container fade-in">
+    <h2>Editar Perfil</h2>
+    <form>
+        <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+        </div>
+        <div class="form-group">
+            <label for="area">Área de atuação</label>
+            <select id="area" name="area">
+                <option value="">Selecione</option>
+                <option value="tecnologia">Tecnologia</option>
+                <option value="negocios">Negócios</option>
+                <option value="marketing">Marketing</option>
+                <option value="outra">Outra</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <input type="text" id="bio" name="bio" placeholder="Fale um pouco sobre você">
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </form>
+</main>
+
+<footer class="footer fade-in">
+    <div class="container footer-content">
+        <div>
+            <h4>MatchBusiness</h4>
+            <p>Conexões profissionais ao redor do café.</p>
+        </div>
+        <div>
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                <li><a th:href="@{/dashboard}">Dashboard</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Recursos</h4>
+            <ul>
+                <li><a th:href="@{/blog}">Blog</a></li>
+                <li><a th:href="@{/faq}">FAQ</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contato</h4>
+            <p>contato@matchbusiness.com<br>+55 (11) 4002-8922</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

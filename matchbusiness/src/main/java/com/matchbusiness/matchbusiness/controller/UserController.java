@@ -1,8 +1,5 @@
 package com.matchbusiness.matchbusiness.controller;
 
-import com.matchbusiness.matchbusiness.model.Usuario;
-import com.matchbusiness.matchbusiness.repository.UsuarioRepository;
-import com.matchbusiness.matchbusiness.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -12,6 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.matchbusiness.matchbusiness.model.Usuario;
+import com.matchbusiness.matchbusiness.repository.UsuarioRepository;
+import com.matchbusiness.matchbusiness.service.UsuarioService;
 
 @Controller
 @RequestMapping("/user")

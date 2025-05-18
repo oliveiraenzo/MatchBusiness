@@ -1,0 +1,51 @@
+/* footer.css */
+
+/* Footer comum */
+.footer {
+  background: #2D2D2D;
+  color: #ffffff;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+}
+
+.footer-content > div {
+  flex: 1 1 200px;
+}
+
+.footer-content h4 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-content ul {
+  list-style: none;
+}
+
+.footer-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-content ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-content ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,142 @@
+/* sobre.css */
+
+/* HEADER (adaptado do dashboard.css para o menu da página) */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.header.scrolled {
+  background: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.logo img.logo-sem-fundo {
+  height: 3rem;
+  width: auto;
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  color: #4A5568;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav a:hover,
+.nav a.active {
+  color: #38A169;
+}
+
+.nav .btn {
+  background: #38A169;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-left: 2rem;
+  text-decoration: none;
+}
+.nav .btn:hover {
+  background: #2F855A;
+}
+
+/* SOBRE NÓS */
+.sobre-nos {
+  margin-top: 6rem; /* compensar header fixo */
+  background: #F0FFF4;
+  padding: 3rem 1.5rem;
+  color: #2D3748;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.sobre-nos h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #276749;
+}
+
+.sobre-nos p {
+  max-width: 720px;
+  margin: 0 auto 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #4A5568;
+}
+
+/* VALORES, MISSÃO E VISÃO */
+.valores-missao-visao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto 4rem;
+  color: #2D3748;
+  font-family: 'Inter', sans-serif;
+}
+
+.valores-box,
+.missao-visao > div {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  padding: 2rem;
+  flex: 1 1 300px;
+}
+
+.valores-box h2,
+.missao-visao h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #276749;
+}
+
+.valores-box ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  color: #4A5568;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.valores-box ul li {
+  margin-bottom: 0.75rem;
+}
+
+.missao-visao div p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4A5568;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .valores-missao-visao {
+    flex-direction: column;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

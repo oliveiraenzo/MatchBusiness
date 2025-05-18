@@ -1,27 +1,115 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Configurações Pessoais</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Configurações Pessoais - MatchBusiness</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
 </head>
+
 <body>
-    <h1>Configurações Pessoais</h1>
-    <form th:action="@{/user/configuracoes}" th:object="${usuario}" method="post">
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" th:field="*{nome}" required />
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a th:href="@{/}"><img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo MatchBusiness"></a>
+            </div>
+            <nav class="nav">
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/sobre}">Sobre</a>
+                <a th:href="@{/dashboard}" class="active">Dashboard</a>
+                <a th:href="@{/logout}" class="btn">Sair</a>
+            </nav>
         </div>
-        <div>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" th:field="*{email}" required />
+    </header>
+
+    <!-- Main Section -->
+    <section class="profile-section">
+        <div class="container">
+            <h1 class="section-title">Configurações Pessoais</h1>
+
+            <div class="profile-card">
+                <form th:action="@{/user/configuracoes}" th:object="${usuario}" method="post" class="profile-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" th:field="*{nome}" placeholder="Seu nome completo" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E‑mail</label>
+                        <input type="email" id="email" th:field="*{email}" placeholder="seu@exemplo.com" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Nova Senha</label>
+                        <input type="password" id="senha" th:field="*{senha}" placeholder="Deixe em branco para manter a atual" />
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Salvar Alterações</button>
+                        <a th:href="@{/dashboard}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <label for="senha">Nova Senha:</label>
-            <input type="password" id="senha" th:field="*{senha}" placeholder="Deixe em branco se não alterar" />
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fade-in">
+        <div class="container footer-content">
+            <div>
+                <h4>MatchBusiness</h4>
+                <p>Conexões profissionais ao redor do café.</p>
+            </div>
+            <div>
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                    <li><a th:href="@{/dashboard}">Dashboard</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a th:href="@{/blog}">Blog</a></li>
+                    <li><a th:href="@{/faq}">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p>contato@matchbusiness.com<br>+55 (11) 4002-8922</p>
+            </div>
         </div>
-        <button type="submit">Salvar</button>
-    </form>
-    <a th:href="@{/dashboard}">Voltar para o Dashboard</a>
+        <div class="footer-bottom">
+            <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // header scroll
+        window.addEventListener("scroll", () => {
+            document.querySelector(".header").classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        // fade-in ao scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+        });
+    </script>
 </body>
+
 </html>

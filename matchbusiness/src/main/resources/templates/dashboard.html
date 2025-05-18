@@ -1,33 +1,299 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
+
 <head>
-  <title>Dashboard</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – MatchBusiness</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
 </head>
+
 <body>
-  <h1>Dashboard do MatchBusiness</h1>
-  <p>Você está logado!</p>
-  
-  <!-- Exibição condicionada dos botões -->
-  <div>
-    <!-- Se o usuário NÃO for super (ou seja, se currentUser.superMaster for false),
-         mostramos o botão "Configurações pessoais". Isso vale tanto para usuário comum quanto para master comum. -->
-    <span th:if="${currentUser != null and !currentUser.superMaster}">
-      <a th:href="@{/user/configuracoes}">Configurações pessoais</a>
-    </span>
-    
-    <!-- Se o usuário for master (comum ou super), ou seja, se currentUser.master for true,
-         mostramos o botão "Gerenciar Usuários". -->
-    <span th:if="${currentUser != null and currentUser.master}">
-      <a th:href="@{/master/users}">Gerenciar Usuários</a>
-    </span>
-  </div>
-  
-  <!-- Botão de Logout via formulário POST -->
-  <form id="logoutForm" th:action="@{/logout}" method="post" style="display:none;">
-    <!-- Inclui o token CSRF -->
-    <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-  </form>
-  <a href="#" onclick="document.getElementById('logoutForm').submit(); return false;">Sair</a>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="brand">☕ MatchBusiness</div>
+      <nav class="nav-links">
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/sobre}">Sobre</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+
+      </nav>
+      <div class="actions">
+        <input type="text" class="search" placeholder="Buscar..." />
+        <div class="notif">
+          🔔
+          <span class="badge">2</span>
+          <div class="notif-dropdown">
+            <h4>Notificações</h4>
+            <ul>
+              <li><strong>Rafael Souza</strong> aceitou seu convite <span>2 horas atrás</span></li>
+              <li><strong>Novo match</strong> com Camila Ribeiro <span>5 horas atrás</span></li>
+              <li><strong>Lembrete:</strong> Café com Marcos amanhã às 15h <span>1 dia atrás</span></li>
+            </ul>
+            <a href="#" class="see-all">Ver todas</a>
+          </div>
+        </div>
+
+        <!-- USUÁRIO E DROPDOWN -->
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" />
+          <span class="user-name">João Silva ▾</span>
+          <div class="dropdown">
+            <div class="user-info">
+              <strong>João Silva</strong>
+              <p>joao.silva@email.com</p>
+            </div>
+            <ul>
+              <li><a th:href="@{/user/configuracoes}">Meu Perfil</a></li>
+              <li><a th:href="@{/}">Configurações</a></li>
+              <li><a th:href="@{/logout}">Sair</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TABS -->
+    <div class="tabs">
+      <button id="tab-suggestions" class="active">☑ Sugestões de Match</button>
+      <button id="tab-scheduled">📅 Agendados</button>
+      <button id="tab-messages">💬 Mensagens</button>
+    </div>
+
+    <!-- CONTENT: SUGESTÕES -->
+    <section id="content-suggestions" class="cards fade-in visible">
+      <!-- Card 1 -->
+      <article class="card">
+        <header>
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Juliana Almeida" />
+          <div>
+            <h3>Juliana Almeida</h3>
+            <p>Designer UX/UI</p>
+          </div>
+        </header>
+        <div class="label">Interesses</div>
+        <ul class="tags">
+          <li>Design</li>
+          <li>Tecnologia</li>
+          <li>Inovação</li>
+        </ul>
+        <footer>
+          <span>💬 Chat</span>
+          <div class="actions-btns">
+            <button class="deny" aria-label="Recusar">❌</button>
+            <button class="accept" aria-label="Aceitar">✅</button>
+          </div>
+        </footer>
+      </article>
+      <!-- Card 2 -->
+      <article class="card">
+        <header>
+          <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Rafael Souza" />
+          <div>
+            <h3>Rafael Souza</h3>
+            <p>Desenvolvedor Full Stack</p>
+          </div>
+        </header>
+        <div class="label">Interesses</div>
+        <ul class="tags">
+          <li>Programação</li>
+          <li>Startups</li>
+          <li>IA</li>
+        </ul>
+        <footer>
+          <span>💬 Chat</span>
+          <div class="actions-btns">
+            <button class="deny" aria-label="Recusar">❌</button>
+            <button class="accept" aria-label="Aceitar">✅</button>
+          </div>
+        </footer>
+      </article>
+      <!-- Card 3 -->
+      <article class="card">
+        <header>
+          <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Camila Ribeiro" />
+          <div>
+            <h3>Camila Ribeiro</h3>
+            <p>Marketing Digital</p>
+          </div>
+        </header>
+        <div class="label">Interesses</div>
+        <ul class="tags">
+          <li>Branding</li>
+          <li>Social Media</li>
+          <li>Comunicação</li>
+        </ul>
+        <footer>
+          <span>💬 Chat</span>
+          <div class="actions-btns">
+            <button class="deny" aria-label="Recusar">❌</button>
+            <button class="accept" aria-label="Aceitar">✅</button>
+          </div>
+        </footer>
+      </article>
+    </section>
+
+    <!-- CONTENT: AGENDADOS -->
+    <section id="content-scheduled" class="cards fade-in" style="display: none;">
+      <h2>Cafés Agendados</h2>
+      <article class="card scheduled">
+        <div class="schedule-icon">
+          <svg width="32" height="32" fill="#A3D9A5" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="24" height="22" rx="3" />
+            <line x1="4" y1="14" x2="28" y2="14" stroke="#fff" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="details">
+          <h3>Café com Marcos Oliveira</h3>
+          <p>12 de Junho, 2023 às 15:00</p>
+          <p>📍 Café Aroma, Av. Paulista</p>
+          <div class="actions-btns">
+            <a href="#" class="btn-outline">Enviar mensagem</a>
+            <a href="#" class="btn">Ver no mapa</a>
+          </div>
+        </div>
+      </article>
+      <article class="card scheduled">
+        <div class="schedule-icon">
+          <svg width="32" height="32" fill="#A3D9A5" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="24" height="22" rx="3" />
+            <line x1="4" y1="14" x2="28" y2="14" stroke="#fff" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="details">
+          <h3>Café com Fernanda Santos</h3>
+          <p>15 de Junho, 2023 às 10:30</p>
+          <p>📍 Starbucks, Shopping Ibirapuera</p>
+          <div class="actions-btns">
+            <a href="#" class="btn-outline">Enviar mensagem</a>
+            <a href="#" class="btn">Ver no mapa</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- CONTENT: MENSAGENS -->
+    <section id="content-messages" class="fade-in" style="display: none;">
+      <div class="messages-empty">
+        <div class="icon">💬</div>
+        <h2>Nenhuma mensagem ainda</h2>
+        <p>Quando você aceitar um match, poderá conversar com a pessoa aqui.</p>
+        <a href="#" class="btn-suggestions">Ver sugestões de match</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <div class="container footer-content">
+      <div>
+        <h4>MatchBusiness</h4>
+        <p>Conexões profissionais ao redor do café.</p>
+      </div>
+      <div>
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+          <li><a th:href="@{/dashboard}">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul>
+          <li><a th:href="@{/blog}">Blog</a></li>
+          <li><a th:href="@{/faq}">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p>contato@matchbusiness.com<br>+55 (11) 4002-8922</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // header scroll
+    window.addEventListener("scroll", () => {
+      document.querySelector(".header")
+        .classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // fade-in ao scroll
+    document.addEventListener("DOMContentLoaded", () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    });
+
+    // tabs switch
+    const tabs = {
+      'tab-suggestions': 'content-suggestions',
+      'tab-scheduled': 'content-scheduled',
+      'tab-messages': 'content-messages'
+    };
+    Object.keys(tabs).forEach(tabId => {
+      document.getElementById(tabId).addEventListener('click', () => {
+        // Ativa aba clicada
+        Object.keys(tabs).forEach(id => {
+          document.getElementById(id).classList.toggle('active', id === tabId);
+        });
+        // Mostra a seção correspondente
+        Object.entries(tabs).forEach(([btnId, contentId]) => {
+          const section = document.getElementById(contentId);
+          if (btnId === tabId) {
+            section.style.display = (contentId === 'content-suggestions') ? 'grid' : 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // dropdown do usuário
+    const userEl = document.querySelector('.actions .user');
+    const dropdown = userEl.querySelector('.dropdown');
+    userEl.addEventListener('click', e => {
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+    });
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('active');
+    });
+
+    // dropdown de notificações
+    const notifEl = document.querySelector('.actions .notif');
+    const notifMenu = notifEl.querySelector('.notif-dropdown');
+    notifEl.addEventListener('click', e => {
+      e.stopPropagation();
+      notifEl.classList.toggle('active');
+      // fechar usuário se estiver aberto
+      dropdown.classList.remove('active');
+    });
+    document.addEventListener('click', () => {
+      notifEl.classList.remove('active');
+    });
+
+
+
+  </script>
 </body>
+
 </html>
