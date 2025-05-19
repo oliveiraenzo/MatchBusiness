@@ -1,25 +1,48 @@
-/* sobre.css */
+/* --------------------- */
+/*      BASE GERAL       */
+/* --------------------- */
 
-/* HEADER (adaptado do dashboard.css para o menu da página) */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #2D3748;
+  margin: 0;
+  padding-top: 5rem; /* compensação do header fixo */
+  background-color: #D9F2DC;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------- */
+/*        HEADER         */
+/* --------------------- */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-.header.scrolled {
-  background: #f9f9f9;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .header .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 1.5rem;
 }
 
@@ -28,14 +51,21 @@
   width: auto;
 }
 
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .nav a {
-  margin-left: 1.5rem;
   color: #4A5568;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
   transition: color 0.2s;
 }
+
 .nav a:hover,
 .nav a.active {
   color: #38A169;
@@ -48,95 +78,260 @@
   border-radius: 9999px;
   font-weight: 600;
   transition: background 0.2s;
-  margin-left: 2rem;
-  text-decoration: none;
 }
+
 .nav .btn:hover {
   background: #2F855A;
 }
 
-/* SOBRE NÓS */
-.sobre-nos {
-  margin-top: 6rem; /* compensar header fixo */
-  background: #F0FFF4;
-  padding: 3rem 1.5rem;
-  color: #2D3748;
-  font-family: 'Inter', sans-serif;
+/* --------------------- */
+/*       CONTEÚDO        */
+/* --------------------- */
+
+.profile-container {
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+}
+
+.profile-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #276749;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.sobre-nos h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #276749;
-}
-
-.sobre-nos p {
-  max-width: 720px;
-  margin: 0 auto 1.25rem;
+.profile-container p {
   font-size: 1.125rem;
   line-height: 1.6;
   color: #4A5568;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* VALORES, MISSÃO E VISÃO */
-.valores-missao-visao {
+/* Missão, Visão e Valores */
+
+.missao-visao-valores {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 3rem 1.5rem;
+  margin: 3rem auto;
   max-width: 960px;
-  margin: 0 auto 4rem;
-  color: #2D3748;
-  font-family: 'Inter', sans-serif;
 }
 
-.valores-box,
-.missao-visao > div {
-  background: #fff;
+.missao-visao-valores .card {
+  flex: 1 1 280px;
+  background: #fff; /* fundo branco */
+  padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  padding: 2rem;
-  flex: 1 1 300px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.valores-box h2,
-.missao-visao h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+.missao-visao-valores h3 {
   color: #276749;
-}
-
-.valores-box ul {
-  list-style-type: disc;
-  padding-left: 1.25rem;
-  color: #4A5568;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.valores-box ul li {
+  font-size: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
-.missao-visao div p {
-  font-size: 1rem;
-  line-height: 1.5;
+.missao-visao-valores ul {
+  padding-left: 1.25rem;
   color: #4A5568;
 }
 
-/* RESPONSIVIDADE */
+.missao-visao-valores ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Como Funciona */
+
+.como-funciona {
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.como-funciona h3 {
+  font-size: 1.75rem;
+  color: #276749;
+  margin-bottom: 1.5rem;
+}
+
+.como-funciona ol {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  color: #4A5568;
+  line-height: 1.7;
+  padding-left: 1.25rem;
+}
+
+.como-funciona li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Depoimentos */
+
+.depoimentos {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.depoimentos h3 {
+  font-size: 1.75rem;
+  color: #276749;
+  margin-bottom: 2rem;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #4A5568;
+}
+
+.testimonials blockquote {
+  background: #F0FFF4; /* verde claro suave */
+  border-left: 4px solid #38A169;
+  padding: 1rem 1.25rem;
+  border-radius: 0.25rem;
+  font-style: italic;
+}
+
+.testimonials cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #2F855A;
+}
+
+/* Chamada para Ação */
+
+.cta {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #F0FFF4; /* verde claro padrão anterior */
+  border-radius: 0.5rem;
+  margin: 4rem auto;
+}
+
+.cta h3 {
+  font-size: 1.75rem;
+  color: #276749;
+  margin-bottom: 1rem;
+}
+
+.btn-cta {
+  display: inline-block;
+  background: #38A169;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.btn-cta:hover {
+  background: #2F855A;
+}
+
+/* --------------------- */
+/*        FOOTER         */
+/* --------------------- */
+
+.footer {
+  background: #2D3748;
+  color: #E2E8F0;
+  padding: 3rem 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer p,
+.footer a,
+.footer li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #CBD5E0;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #68D391;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #4A5568;
+  padding-top: 1rem;
+  font-size: 0.875rem;
+  color: #A0AEC0;
+}
+
+/* --------------------- */
+/*      RESPONSIVO       */
+/* --------------------- */
+
 @media (max-width: 768px) {
-  .valores-missao-visao {
+  .header .container {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .missao-visao-valores {
+    flex-direction: column;
+  }
+
+  .testimonials {
+    padding: 0 1rem;
+  }
+
+  .como-funciona ol {
+    padding-left: 1rem;
+  }
+
+  .profile-container h2,
+  .como-funciona h3,
+  .depoimentos h3,
+  .cta h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-container p,
+  .como-funciona li {
+    font-size: 1rem;
   }
 }

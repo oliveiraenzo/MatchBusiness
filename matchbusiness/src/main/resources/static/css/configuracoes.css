@@ -1,0 +1,107 @@
+/* configuracoes.css */
+/* segue mesma filosofia visual da index.css */
+
+.profile-container{
+  max-width:700px;
+  margin:0 auto 3rem;
+  padding:2rem;
+  background:#ffffff;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.06);
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+.profile-container h2{
+  font-size:2rem;
+  margin-bottom:1.5rem;
+  color:#000000;
+  text-align:center;
+}
+
+/* form */
+.form-group{margin-bottom:1.3rem;}
+
+.form-group label{
+  display:block;
+  margin-bottom:.5rem;
+  font-weight:600;
+  color:#034078;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:.55rem .75rem;
+  border:1.5px solid #cbd5e1;
+  border-radius:5px;
+  font-size:1rem;
+  transition:border-color .3s,box-shadow .3s;
+  box-sizing:border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  outline:none;
+  border-color:#0a74da;
+  box-shadow:0 0 5px #0a74da88;
+}
+
+/* botões (reutiliza .btn de index.css) */
+.btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:1rem;
+}
+
+.btn{ /* já vem da index, mas garantimos consistência */
+  padding:.6rem 1.3rem;
+  font-size:1rem;
+  font-weight:600;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  user-select:none;
+  transition:background-color .3s,box-shadow .3s;
+}
+
+.btn-primary{
+  background:#0a74da;
+  color:#fff;
+  box-shadow:0 3px 6px #0a74da66;
+}
+.btn-primary:hover,
+.btn-primary:focus{
+  background:#065bb5;
+  box-shadow:0 5px 12px #065bb566;
+}
+
+.btn-secondary{
+  background:#e2e8f0;
+  color:#475569;
+}
+.btn-secondary:hover,
+.btn-secondary:focus{
+  background:#cbd5e1;
+  color:#334155;
+}
+
+/* fade-in (usa mesma classe da index) */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s ease-out,transform .6s ease-out;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* responsivo */
+@media(max-width:480px){
+  .profile-container{
+    margin-top:4rem;
+    padding:1.5rem 1rem;
+  }
+  .btn-group{flex-direction:column;}
+}

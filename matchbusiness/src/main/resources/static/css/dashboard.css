@@ -1,367 +1,148 @@
 /* dashboard.css */
-
 /* RESET + BASE (já inclusos externamente) */
 
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  z-index: 1000;
-  transition: background 0.3s, box-shadow 0.3s;
+/* ───────── HEADER ───────── */
+.header{
+  position:fixed;top:0;left:0;right:0;
+  background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1);
+  z-index:1000;transition:background .3s,box-shadow .3s
 }
-.header.scrolled {
-  background: #f9f9f9;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+.header.scrolled{background:#f9f9f9;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.header .container{
+  display:flex;align-items:center;justify-content:space-between;padding:1rem 0
+}
+.brand{font-size:1.25rem;font-weight:700;color:#38A169}
+.nav-links a{
+  margin-right:1rem;color:#4A5568;text-decoration:none;font-weight:600;
+  transition:color .2s
+}
+.nav-links a:hover{color:#2D3748}
+.nav-links a.active{color:#2D3748}
+
+.actions{display:flex;align-items:center;gap:.75rem}
+.actions .search{
+  padding:.5rem 1rem;border:1px solid #CBD5E0;border-radius:9999px;font-size:.875rem
 }
 
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
+/* ── notificações ── */
+.actions .notif{position:relative;font-size:1.25rem;cursor:pointer}
+.actions .notif .notif-dropdown{
+  position:absolute;top:120%;right:0;width:260px;background:#fff;border:1px solid #ddd;
+  border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);padding:.75rem;display:none;z-index:1000
 }
+.actions .notif.active .notif-dropdown{display:block}
+.actions .notif-dropdown h4{
+  margin:0 0 .5rem;font-size:.875rem;color:#4A5568;border-bottom:1px solid #eee;padding-bottom:.25rem
+}
+.actions .notif-dropdown ul{list-style:none;margin:0;padding:0}
+.actions .notif-dropdown ul li{
+  font-size:.825rem;color:#333;padding:.5rem 0;border-bottom:1px solid #f0f0f0;
+  display:flex;justify-content:space-between
+}
+.actions .notif-dropdown ul li:last-child{border-bottom:none}
+.actions .notif-dropdown ul li span{font-size:.75rem;color:#718096}
+.actions .notif-dropdown .see-all{
+  display:block;text-align:center;margin-top:.5rem;font-size:.825rem;color:#38A169;text-decoration:none
+}
+.actions .notif-dropdown .see-all:hover{text-decoration:underline}
 
-.brand {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #38A169;
+/* ── usuário ── */
+.actions .user{
+  position:relative;cursor:pointer;display:flex;align-items:center;gap:.5rem;
+  font-weight:500;font-size:.875rem
 }
+.actions .user img{width:2rem;height:2rem;border-radius:50%}
+.actions .user .dropdown{
+  position:absolute;top:120%;right:0;background:#fff;color:#333;border:1px solid #ddd;
+  border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);width:220px;padding:.5rem;z-index:1000;display:none
+}
+.actions .user .dropdown.active{display:block}
+.actions .user .dropdown .user-info{
+  border-bottom:1px solid #eee;padding-bottom:.5rem;margin-bottom:.5rem
+}
+.actions .user .dropdown .user-info p{font-size:.85rem;color:#666;margin:.2rem 0 0}
+.actions .user .dropdown ul{list-style:none;padding:0;margin:0}
+.actions .user .dropdown ul li{margin-bottom:.5rem}
+.actions .user .dropdown ul li a{
+  text-decoration:none;color:#333;font-weight:500;display:block;padding:.4rem .6rem;
+  border-radius:4px;transition:background .2s
+}
+.actions .user .dropdown ul li a:hover{background:#f0f0f0}
+.actions .user .dropdown .logout{color:#e53935}
 
-.nav-links a {
-  margin-right: 1rem;
-  color: #4A5568;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
+/* ───────── TABS ───────── */
+.tabs{
+  background:#fff;border-bottom:1px solid #E2E8F0;margin-top:5rem /* compensar header fixo */
 }
-.nav-links a:hover {
-  color: #2D3748;
+.tabs button{
+  background:none;border:none;padding:.75rem 1rem;font-size:.875rem;color:#718096;cursor:pointer;
+  transition:color .2s,border-bottom .2s
 }
-.nav-links a.active {
-  color: #2D3748;
-}
+.tabs button:hover{color:#4A5568}
+.tabs button.active{color:#38A169;border-bottom:2px solid #38A169}
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+/* ───────── CARDS ───────── */
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1rem;margin:1.5rem 0
 }
+.card{
+  background:#fff;border-top:4px solid #F0FFF4;border-radius:.5rem;
+  box-shadow:0 1px 2px rgba(0,0,0,.1);display:flex;flex-direction:column;padding:1rem;
+  transition:transform .2s,box-shadow .2s
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 4px 6px rgba(0,0,0,.1)}
 
-.actions .search {
-  padding: 0.5rem 1rem;
-  border: 1px solid #CBD5E0;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+/* card – topo padrão (match) */
+.card header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.card header img{width:3rem;height:3rem;border-radius:50%}
+.card header h3{font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.card header p{font-size:.875rem;color:#718096}
+.card .label{font-size:.875rem;color:#4A5568;margin-bottom:.5rem}
+.card .tags{
+  list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem
 }
+.card .tags li{
+  background:#EDF2F7;padding:.25rem .5rem;border-radius:9999px;font-size:.75rem;color:#4A5568
+}
+.card footer{
+  margin-top:auto;display:flex;justify-content:space-between;align-items:center;
+  font-size:.875rem;color:#4A5568
+}
+.card .actions-btns button{
+  font-size:1rem;padding:.25rem;border-radius:9999px;border:1px solid transparent;
+  cursor:pointer;transition:background .2s
+}
+.deny{border-color:#FEB2B2;color:#E53E3E}
+.deny:hover{background:#FFF5F5}
+.accept{border-color:#C6F6D5;color:#38A169}
+.accept:hover{background:#F0FFF4}
 
-.actions .notif {
-  position: relative;
-  font-size: 1.25rem;
-  cursor: pointer;
+/* ── cartões agendados (com foto) ── */
+.card.scheduled{
+  flex-direction:row;align-items:stretch;gap:1rem
 }
-.actions .notif .notif-dropdown {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  width: 260px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 0.75rem;
-  display: none;
-  z-index: 1000;
+.cafe-photo{
+  width:120px;height:120px;object-fit:cover;border-radius:.5rem
 }
-.actions .notif.active .notif-dropdown {
-  display: block;
-}
-.actions .notif-dropdown h4 {
-  margin: 0 0 0.5rem;
-  font-size: 0.875rem;
-  color: #4A5568;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.25rem;
-}
-.actions .notif-dropdown ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.actions .notif-dropdown ul li {
-  font-size: 0.825rem;
-  color: #333;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: space-between;
-}
-.actions .notif-dropdown ul li:last-child {
-  border-bottom: none;
-}
-.actions .notif-dropdown ul li span {
-  font-size: 0.75rem;
-  color: #718096;
-}
-.actions .notif-dropdown .see-all {
-  display: block;
-  text-align: center;
-  margin-top: 0.5rem;
-  font-size: 0.825rem;
-  color: #38A169;
-  text-decoration: none;
-}
-.actions .notif-dropdown .see-all:hover {
-  text-decoration: underline;
-}
+.card.scheduled .details{display:flex;flex-direction:column;flex:1}
 
-/* USER + DROPDOWN */
-.actions .user {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  font-size: 0.875rem;
+/* ───────── SEÇÃO MENSAGENS VAZIAS ───────── */
+.messages-empty{
+  background:#fff;border:1px solid #E2E8F0;border-radius:.5rem;padding:2rem;text-align:center;
+  margin:1.5rem 0;box-shadow:0 1px 2px rgba(0,0,0,.05)
 }
+.messages-empty .icon{
+  font-size:3rem;color:#C6F6D5;margin-bottom:1rem;display:inline-block
+}
+.messages-empty h2{font-size:1.25rem;font-weight:600;color:#2D3748;margin-bottom:.5rem}
+.messages-empty p{font-size:.875rem;color:#718096;margin-bottom:1.5rem}
+.messages-empty .btn-suggestions{
+  display:inline-block;padding:.75rem 1.5rem;background:#C6F6D5;color:#276749;border-radius:.375rem;
+  font-weight:600;text-decoration:none;transition:background .2s
+}
+.messages-empty .btn-suggestions:hover{background:#9AE6B4}
 
-.actions .user img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-}
-
-.actions .user .dropdown {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  background: #fff;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 220px;
-  padding: 0.5rem;
-  z-index: 1000;
-  display: none;
-}
-
-.actions .user .dropdown.active {
-  display: block;
-}
-
-.actions .user .dropdown .user-info {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.actions .user .dropdown .user-info p {
-  font-size: 0.85rem;
-  color: #666;
-  margin: 0.2rem 0 0;
-}
-
-.actions .user .dropdown ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.actions .user .dropdown ul li {
-  margin-bottom: 0.5rem;
-}
-
-.actions .user .dropdown ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  display: block;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.actions .user .dropdown ul li a:hover {
-  background: #f0f0f0;
-}
-
-.actions .user .dropdown .logout {
-  color: #e53935;
-}
-
-/* TABS */
-.tabs {
-  background: #fff;
-  border-bottom: 1px solid #E2E8F0;
-  margin-top: 5rem; /* compensar header fixo */
-}
-.tabs button {
-  background: none;
-  border: none;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  color: #718096;
-  cursor: pointer;
-  transition: color 0.2s, border-bottom 0.2s;
-}
-.tabs button:hover {
-  color: #4A5568;
-}
-.tabs button.active {
-  color: #38A169;
-  border-bottom: 2px solid #38A169;
-}
-
-/* CARDS */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-
-.card {
-  background: #fff;
-  border-top: 4px solid #F0FFF4;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.card header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-.card header img {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-}
-.card header h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-.card header p {
-  font-size: 0.875rem;
-  color: #718096;
-}
-
-.card .label {
-  font-size: 0.875rem;
-  color: #4A5568;
-  margin-bottom: 0.5rem;
-}
-
-.card .tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-.card .tags li {
-  background: #EDF2F7;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  color: #4A5568;
-}
-
-.card footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-  color: #4A5568;
-}
-
-.card .actions-btns button {
-  font-size: 1rem;
-  padding: 0.25rem;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.deny {
-  border-color: #FEB2B2;
-  color: #E53E3E;
-}
-.deny:hover {
-  background: #FFF5F5;
-}
-.accept {
-  border-color: #C6F6D5;
-  color: #38A169;
-}
-.accept:hover {
-  background: #F0FFF4;
-}
-
-/* MENSAGENS VAZIAS */
-.messages-empty {
-  background: #ffffff;
-  border: 1px solid #E2E8F0;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  text-align: center;
-  margin: 1.5rem 0;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-.messages-empty .icon {
-  font-size: 3rem;
-  color: #C6F6D5;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-.messages-empty h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #2D3748;
-  margin-bottom: 0.5rem;
-}
-.messages-empty p {
-  font-size: 0.875rem;
-  color: #718096;
-  margin-bottom: 1.5rem;
-}
-.messages-empty .btn-suggestions {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #C6F6D5;
-  color: #276749;
-  border-radius: 0.375rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.messages-empty .btn-suggestions:hover {
-  background: #9AE6B4;
-}
-
-/* UTILITÁRIOS DE ANIMAÇÃO */
-.fade-in {
-  opacity: 0;
-  transform: translateY(1rem);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ───────── ANIMAÇÕES ───────── */
+.fade-in{opacity:0;transform:translateY(1rem);transition:opacity .6s ease-out,transform .6s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}

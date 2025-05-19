@@ -49,3 +49,10 @@
   padding-top: 1rem;
   font-size: 0.8rem;
 }
+
+/* footer.css */
+.footer .container {
+  background: transparent;   /* elimina o fundo branco dentro do rodapé */
+  box-shadow: none;          /* opcional – tira a sombra que veio do formulário */
+  padding: 0;                /* opcional – use o que precisar */
+}

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perfil - MatchBusiness</title>
+    <title>Sobre - MatchBusiness</title>
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/base.css}">
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/sobre.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 
@@ -20,7 +19,7 @@
         </div>
         <nav class="nav">
             <a th:href="@{/home}">Home</a>
-            <a th:href="@{/sobre}">Sobre</a>
+            <a th:href="@{/sobre}" class="active">Sobre</a>
             <a th:href="@{/dashboard}">Dashboard</a>
             <a th:href="@{/login}" class="btn">Entrar</a>
         </nav>
@@ -28,35 +27,66 @@
 </header>
 
 <main class="container profile-container fade-in">
-    <h2>Editar Perfil</h2>
-    <form>
-        <div class="form-group">
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+    <section class="intro">
+        <h2>Sobre a MatchBusiness</h2>
+        <p>
+            A <strong>MatchBusiness</strong> é uma plataforma inovadora que transforma conexões profissionais em oportunidades reais. 
+            Nosso propósito é simples: aproximar pessoas com interesses complementares para conversas significativas — tudo isso ao redor de um bom café.
+        </p>
+        <p>
+            Acreditamos que grandes ideias surgem em ambientes informais. Por isso, promovemos encontros entre talentos com base em suas áreas de atuação, perfis profissionais e objetivos, tornando o networking algo natural e eficiente.
+        </p>
+    </section>
+
+    <section class="missao-visao-valores">
+        <div class="card">
+            <h3>Missão</h3>
+            <p>Promover conexões humanas com propósito, facilitando encontros profissionais que gerem valor, aprendizado e colaboração.</p>
         </div>
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+        <div class="card">
+            <h3>Visão</h3>
+            <p>Ser a principal plataforma brasileira de networking inteligente e humanizado, impulsionando carreiras e projetos por meio do diálogo.</p>
         </div>
-        <div class="form-group">
-            <label for="area">Área de atuação</label>
-            <select id="area" name="area">
-                <option value="">Selecione</option>
-                <option value="tecnologia">Tecnologia</option>
-                <option value="negocios">Negócios</option>
-                <option value="marketing">Marketing</option>
-                <option value="outra">Outra</option>
-            </select>
+        <div class="card">
+            <h3>Valores</h3>
+            <ul>
+                <li>Empatia</li>
+                <li>Transparência</li>
+                <li>Inovação</li>
+                <li>Colaboração</li>
+                <li>Inclusão</li>
+            </ul>
         </div>
-        <div class="form-group">
-            <label for="bio">Bio</label>
-            <input type="text" id="bio" name="bio" placeholder="Fale um pouco sobre você">
+    </section>
+
+    <section class="como-funciona">
+        <h3>Como Funciona?</h3>
+        <ol>
+            <li><strong>Crie seu perfil:</strong> Cadastre suas áreas de interesse, experiência e objetivos.</li>
+            <li><strong>Encontre conexões:</strong> A plataforma sugere pessoas com perfis compatíveis com os seus.</li>
+            <li><strong>Marque encontros:</strong> Combine um café virtual ou presencial e inicie conversas com propósito.</li>
+            <li><strong>Avalie e evolua:</strong> Após o encontro, avalie a experiência e continue ampliando sua rede.</li>
+        </ol>
+    </section>
+
+    <section class="depoimentos">
+        <h3>O que dizem nossos usuários</h3>
+        <div class="testimonials">
+            <blockquote>
+                <p>"Graças à MatchBusiness, fechei uma parceria que virou minha principal fonte de renda. E tudo começou com um café!"</p>
+                <cite>— Ana Paula, Designer Freelancer</cite>
+            </blockquote>
+            <blockquote>
+                <p>"A plataforma me conectou com pessoas que compartilham os mesmos ideais de negócio. O networking nunca foi tão humano."</p>
+                <cite>— Ricardo M., Empreendedor Social</cite>
+            </blockquote>
         </div>
-        <div class="btn-group">
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <button type="reset" class="btn btn-secondary">Cancelar</button>
-        </div>
-    </form>
+    </section>
+
+    <section class="cta">
+        <h3>Pronto para transformar conexões em oportunidades?</h3>
+        <a th:href="@{/register}" class="btn-cta">Cadastre-se gratuitamente</a>
+    </section>
 </main>
 
 <footer class="footer fade-in">
@@ -68,7 +98,7 @@
         <div>
             <h4>Links Rápidos</h4>
             <ul>
-                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/home}">Home</a></li>
                 <li><a th:href="@{/sobre}">Sobre Nós</a></li>
                 <li><a th:href="@{/dashboard}">Dashboard</a></li>
             </ul>

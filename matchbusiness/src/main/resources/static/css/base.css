@@ -6,7 +6,7 @@ body {
   background-color: #D9F2DC;
   color: #4a4a4a;
   line-height: 1.6;
-  padding-top: 80px; /* para compensar header fixo */
+  padding-top: 80px;          /* para compensar header fixo */
 }
 
 /* Container */
@@ -17,7 +17,8 @@ body {
 }
 
 /* Botões genéricos */
-.btn, .btn-outline {
+.btn,
+.btn-outline {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-weight: 600;
@@ -26,19 +27,45 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
 }
+
 .btn {
   background-color: #A3D9A5;
   color: #2D2D2D;
 }
+
 .btn:hover {
   background-color: #2fbf85;
 }
+
 .btn-outline {
   background: transparent;
   border: 2px solid #2D2D2D;
   color: #2D2D2D;
 }
+
 .btn-outline:hover {
   background-color: #34d399;
   color: #ffffff;
 }
+
+/* =========================================================
+   Sticky Footer – garante que o rodapé fique colado ao fim
+   da viewport quando o conteúdo não for suficiente
+   ========================================================= */
+
+/* >>> adicionado */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* faz o conteúdo principal ocupar todo o espaço restante */
+}
+/* <<< */

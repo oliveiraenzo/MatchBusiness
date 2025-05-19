@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - MatchBusiness</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login – MatchBusiness</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" th:href="@{/css/reset.css}">
   <link rel="stylesheet" th:href="@{/css/base.css}">
   <link rel="stylesheet" th:href="@{/css/login.css}">
   <link rel="stylesheet" th:href="@{/css/footer.css}">
 
+  <!-- JS (opcional para efeitos) -->
   <script th:src="@{/js/main.js}" defer></script>
 </head>
 
 <body>
+  <!-- HEADER (idêntico ao da index) -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="/src/main/resources/static/img/logo sem fundo.png"
+             class="logo-sem-fundo" alt="Logo" />
+      </div>
 
+      <nav class="nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/sobre}">Sobre</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <!-- não exibimos “Entrar” aqui porque já estamos na página de login -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- LOGIN -->
   <section class="login-section">
     <div class="container form-container">
       <h2 class="form-title">Login</h2>
+
       <form th:action="@{/login}" method="post" class="form">
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="username" placeholder="seu@exemplo.com" required>
+          <input type="email" id="email" name="username"
+                 placeholder="seu@exemplo.com" required>
         </div>
+
         <div class="form-group">
           <label for="senha">Senha</label>
-          <input type="password" id="senha" name="password" placeholder="••••••••" required>
+          <input type="password" id="senha" name="password"
+                 placeholder="••••••••" required>
         </div>
+
         <button type="submit" class="btn btn-primary">Entrar</button>
       </form>
+
       <p class="form-footer">
         Ainda não tem uma conta?
         <a th:href="@{/register}" class="link">Registrar-se</a>
@@ -36,12 +61,14 @@
     </div>
   </section>
 
+  <!-- FOOTER (inalterado) -->
   <footer class="footer">
     <div class="container footer-content">
       <div>
         <h4>MatchBusiness</h4>
         <p>Conexões profissionais ao redor do café.</p>
       </div>
+
       <div>
         <h4>Links Rápidos</h4>
         <ul>
@@ -50,16 +77,23 @@
           <li><a th:href="@{/dashboard}">Dashboard</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Contato</h4>
         <p>contato@matchbusiness.com<br>+55 (11) 99999-9999</p>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- JS para efeito de scroll no header -->
+  <script>
+    window.addEventListener('scroll', () =>
+      document.querySelector('.header')
+              .classList.toggle('scrolled', window.scrollY > 50));
+  </script>
 </body>
-
 </html>

@@ -3,124 +3,151 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registrar - MatchBusiness</title>
   <link rel="stylesheet" th:href="@{/css/reset.css}" />
   <link rel="stylesheet" th:href="@{/css/base.css}" />
   <link rel="stylesheet" th:href="@{/css/register.css}" />
   <link rel="stylesheet" th:href="@{/css/footer.css}" />
   <script th:src="@{/js/main.js}" defer></script>
-  <style>
-    .error-message {
-      color: #c00;
-      font-size: 0.875rem;
-      display: none;
-      margin-top: 0.25rem;
-    }
-    .has-error input {
-      border-color: #c00;
-    }
-    .has-error .error-message {
-      display: block;
-    }
-  </style>
 </head>
 
 <body>
+  <!-- HEADER (idêntico ao da index) -->
+  <header class="header">
+    <div class="container1">
+      <div class="logo">
+        <img src="/src/main/resources/static/img/logo sem fundo.png"
+             class="logo-sem-fundo" alt="Logo" />
+      </div>
+
+      <nav class="nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/sobre}">Sobre</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <!-- não exibimos “Entrar” aqui porque já estamos na página de login -->
+      </nav>
+    </div>
+  </header>
+
   <main class="container" role="main" aria-labelledby="register-title">
     <h2 id="register-title">Registrar</h2>
     <form id="registerForm" th:action="@{/register}" th:object="${usuario}" method="post" novalidate>
+      
       <div class="form-group" id="group-nome">
         <label for="nome">Nome completo</label>
-        <input type="text" id="nome" th:field="*{nome}" placeholder="Digite seu nome completo" required
-          autocomplete="name" aria-required="true" />
+        <input
+          type="text"
+          id="nome"
+          th:field="*{nome}"
+          placeholder="Digite seu nome completo"
+          required
+          autocomplete="name"
+          aria-required="true"
+        />
         <span class="error-message">Por favor, preencha seu nome completo.</span>
       </div>
+
       <div class="form-group" id="group-email">
         <label for="email">E-mail</label>
-        <input type="email" id="email" th:field="*{email}" placeholder="exemplo@dominio.com" required
-          autocomplete="email" aria-required="true" />
+        <input
+          type="email"
+          id="email"
+          th:field="*{email}"
+          placeholder="exemplo@dominio.com"
+          required
+          autocomplete="email"
+          aria-required="true"
+        />
         <span class="error-message">Por favor, informe um e-mail válido.</span>
       </div>
+
       <div class="form-group" id="group-senha">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" th:field="*{senha}" placeholder="Crie uma senha segura" required
-          autocomplete="new-password" aria-required="true" minlength="6" />
+        <input
+          type="password"
+          id="senha"
+          th:field="*{senha}"
+          placeholder="Crie uma senha segura"
+          required
+          autocomplete="new-password"
+          aria-required="true"
+          minlength="6"
+        />
         <small class="form-text">Use pelo menos 6 caracteres.</small>
         <span class="error-message">A senha precisa ter ao menos 6 caracteres.</span>
       </div>
+
       <button type="submit" class="btn-submit" aria-label="Registrar usuário">Registrar</button>
     </form>
-    <p class="text-center">Já tem uma conta? <a th:href="@{/login}">Entrar</a></p>
+
+    <p class="text-center">
+      Já tem uma conta? <a th:href="@{/login}">Entrar</a>
+    </p>
   </main>
 
-    <footer class="footer fade-in">
-        <div class="container footer-content">
-            <div>
-                <h4>MatchBusiness</h4>
-                <p>Conexões profissionais ao redor do café.</p>
-            </div>
-            <div>
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/sobre}">Sobre Nós</a></li>
-                    <li><a th:href="@{/dashboard}">Dashboard</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Recursos</h4>
-                <ul>
-                    <li><a th:href="@{/blog}">Blog</a></li>
-                    <li><a th:href="@{/faq}">FAQ</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contato</h4>
-                <p>contato@matchbusiness.com<br>+55 (11) 4002-8922</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        // header scroll
-        window.addEventListener("scroll", () => {
-            document.querySelector(".header")
-                .classList.toggle("scrolled", window.scrollY > 50);
-        });
-
-        // fade-in ao scroll
-        document.addEventListener("DOMContentLoaded", () => {
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add("visible");
-                        obs.unobserve(e.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-        });
-    </script>
-
-</body>
-
-</html>
+  <footer class="footer fade-in">
+    <div class="container footer-content">
+      <div>
+        <h4>MatchBusiness</h4>
+        <p>Conexões profissionais ao redor do café.</p>
+      </div>
+      <div>
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+          <li><a th:href="@{/dashboard}">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul>
+          <li><a th:href="@{/blog}">Blog</a></li>
+          <li><a th:href="@{/faq}">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p>contato@matchbusiness.com<br />+55 (11) 4002-8922</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
+    // Header scroll effect
+    window.addEventListener("scroll", () => {
+      document.querySelector(".header").classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // Fade-in ao scroll
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    });
+
+    // Validação do formulário
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
       let formValid = true;
 
-      // itera por cada form-group que contenha input required
       this.querySelectorAll('.form-group').forEach(group => {
         const input = group.querySelector('input');
         const error = group.querySelector('.error-message');
 
-        // zera estados anteriores
         group.classList.remove('has-error');
         error.textContent = '';
+        error.style.display = 'none';
 
         if (!input.checkValidity()) {
           formValid = false;
@@ -143,6 +170,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>
