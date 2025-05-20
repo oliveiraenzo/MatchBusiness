@@ -1,174 +1,222 @@
-/* Header */
+/* register.css */
+/* Dependências: reset.css, base.css */
+
 /* ────────────────────────────
-   HEADER – igual ao index.css
+   HEADER – Otimizado para tamanho ideal
    ────────────────────────────*/
 
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #D9F2DC;
-  padding: 1rem 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #D9F2DC;
+    padding: 0.75rem 0; /* Reduz o padding vertical para tornar o header mais compacto */
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; /* Adiciona transição para o padding */
 }
+
 .header.scrolled {
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 0.5rem 0; /* Reduz ainda mais o padding quando a página é rolada */
 }
-.header .container1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+
+.header .container1 { /* Notei que você usou container1 no HTML, ajustei aqui */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1.5rem; /* Mantém o padding horizontal */
 }
 
 /* Logo */
 .logo {
-  color: #1c4532;
-  font-weight: bold;
-  font-size: 1.25rem;
+    color: #1c4532;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.header .logo img.logo-sem-fundo {
+    height: auto; /* Mantém a proporção da imagem */
+    width: 100px; /* Define um tamanho fixo para o logo, ideal para cabeçalhos compactos */
+    transition: width 0.3s ease; /* Adiciona transição para a largura do logo */
+}
+
+.header.scrolled .logo img.logo-sem-fundo {
+    width: 80px; /* Reduz o tamanho do logo quando a página é rolada */
 }
 
 /* Navegação */
 .nav {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.nav a {
-  text-decoration: none;
-  color: #2E2E2E;
-  transition: color 0.3s ease;
-}
-.nav a:hover {
-  color: #34d399;
+    display: flex;
+    gap: 0.8rem; /* Reduz o espaçamento entre os itens de navegação */
+    flex-wrap: wrap;
+    list-style: none; /* Remove os marcadores de lista padrão */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
 }
 
-/* Botão genérico usado na navegação */
+.nav a {
+    text-decoration: none;
+    color: #2E2E2E;
+    transition: color 0.3s ease;
+    font-size: 0.85rem; /* Reduz o tamanho da fonte para links de navegação */
+    padding: 0.25rem 0.5rem; /* Adiciona um pequeno padding aos links para facilitar o clique */
+}
+
+.nav a:hover {
+    color: #34d399;
+}
+
+/* Botão genérico usado na navegação (se houver) */
 .btn {
-  background: #A3D9A5;
-  color: #2d2d2d;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.3s ease, color 0.3s ease;
+    background: #A3D9A5;
+    color: #2d2d2d;
+    padding: 0.4rem 0.8rem; /* Ajusta o padding para um botão mais compacto */
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 0.85rem; /* Ajusta o tamanho da fonte do botão */
 }
 .btn:hover {
-  background: #2fbf85;
-  color: #ffffff;
+    background: #2fbf85;
+    color: #ffffff;
 }
 
-/* Form Container */
+/* ────────────────────────────
+    CORPO (ajustando padding-top para compensar o header fixo menor)
+    ────────────────────────────*/
+body {
+    padding-top: 5rem; /* Ajusta para compensar a altura do cabeçalho fixo */
+    /* Você pode ajustar este valor se o cabeçalho parecer sobrepor o conteúdo */
+}
+
+/* ────────────────────────────
+    ÁREA DE REGISTRO
+    ────────────────────────────*/
+
 .container {
-  max-width: 420px;
-  margin: 7rem auto 3rem;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    max-width: 420px;
+    margin: 3rem auto 3rem; /* Ajusta a margem superior para o formulário */
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
 }
 
 /* Titles */
 h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #000000;
-  font-size: 1.8rem;
+    margin-bottom: 1.5rem; /* Reduz a margem inferior do título */
+    text-align: center;
+    color: #000000;
+    font-size: 1.6rem; /* Reduz um pouco o tamanho da fonte do título */
 }
 
 /* Form Groups */
 .form-group {
-  margin-bottom: 1.25rem;
+    margin-bottom: 1rem; /* Reduz a margem inferior entre os grupos de formulário */
 }
 
 /* Labels */
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #2E2E2E;
+    display: block;
+    margin-bottom: 0.4rem; /* Reduz a margem inferior da label */
+    font-weight: 600;
+    color: #2E2E2E;
+    font-size: 0.9rem; /* Ajusta o tamanho da fonte da label */
 }
 
 /* Inputs */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.25s ease;
+    width: 100%;
+    padding: 0.5rem 0.75rem; /* Reduz o padding dos inputs */
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 0.95rem; /* Ajusta o tamanho da fonte do input */
+    transition: border-color 0.25s ease;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #2874f0;
-  outline: none;
-  box-shadow: 0 0 6px rgba(40, 116, 240, 0.4);
+    border-color: #2874f0;
+    outline: none;
+    box-shadow: 0 0 6px rgba(40, 116, 240, 0.4);
 }
 
 /* Help text */
 .form-text {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 0.25rem;
+    font-size: 0.75rem; /* Reduz o tamanho da fonte do texto de ajuda */
+    color: #666;
+    margin-top: 0.2rem; /* Ajusta a margem superior */
 }
 
 /* Error styling */
 .has-error input {
-  border-color: #c00;
+    border-color: #c00;
 }
 .error-message {
-  color: #c00;
-  font-size: 0.875rem;
-  display: none;
-  margin-top: 0.25rem;
+    color: #c00;
+    font-size: 0.8rem; /* Reduz o tamanho da fonte da mensagem de erro */
+    display: none;
+    margin-top: 0.2rem; /* Ajusta a margem superior */
 }
 .has-error .error-message {
-  display: block;
+    display: block;
 }
 
 /* Submit Button */
 .btn-submit {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #2874f0;
-  border: none;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    padding: 0.7rem; /* Reduz o padding do botão de submit */
+    background-color: #2874f0;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem; /* Reduz o tamanho da fonte do botão de submit */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 0.8rem; /* Adiciona uma margem superior */
 }
 .btn-submit:hover,
 .btn-submit:focus {
-  background-color: #185ecc;
-  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+    background-color: #185ecc;
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
 }
 
 /* Link para login */
 .text-center {
-  margin-top: 1.5rem;
-  text-align: center;
-  color: #555;
+    margin-top: 1rem; /* Reduz a margem superior */
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem; /* Reduz o tamanho da fonte */
 }
 .text-center a {
-  color: #2874f0;
-  font-weight: 600;
-  text-decoration: none;
+    color: #2874f0;
+    font-weight: 600;
+    text-decoration: none;
 }
 .text-center a:hover,
 .text-center a:focus {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Responsividade */
 @media (max-width: 480px) {
-  .container {
-    margin: 6rem 1rem 2rem;
-    padding: 1.5rem;
-  }
+    .container {
+        margin: 5rem 1rem 2rem; /* Ajusta as margens para telas menores */
+        padding: 1.25rem; /* Reduz o padding para telas menores */
+    }
+
+    .header .logo img.logo-sem-fundo {
+        width: 80px; /* Ajuste para telas muito pequenas */
+    }
+    .header.scrolled .logo img.logo-sem-fundo {
+        width: 70px; /* Ajuste para telas muito pequenas ao rolar */
+    }
+    .nav a {
+        font-size: 0.8rem; /* Ajusta o tamanho da fonte dos links em telas menores */
+    }
 }
