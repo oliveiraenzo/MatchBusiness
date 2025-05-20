@@ -47,13 +47,14 @@ public class WebSecurityConfig {
             )
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/", "/register", "/login", "/css/**", "/js/**", "/images/**", "/h2-console/**"
+                    "/", "/register", "/login", "/css/**", "/js/**", "/img/**", "/images/**", "/h2-console/**"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/dashboard", true) // <<< alterado aqui
+                .failureUrl("/login?error=true") // Tratativa de erro
+                .defaultSuccessUrl("/dashboard", true)
                 .permitAll()
             )
             .logout(logout -> logout

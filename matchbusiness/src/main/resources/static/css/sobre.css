@@ -1,337 +1,384 @@
 /* --------------------- */
-/*      BASE GERAL       */
+/*      BASE GERAL       */
 /* --------------------- */
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: #2D3748;
-  margin: 0;
-  padding-top: 5rem; /* compensação do header fixo */
-  background-color: #D9F2DC;
+    font-family: 'Inter', sans-serif;
+    color: #2D3748;
+    margin: 0;
+    padding-top: 3.5rem; /* compensação do header fixo MENOR */
+    background-color: #D9F2DC;
 }
 
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .fade-in {
-  animation: fadeIn 0.6s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* --------------------- */
-/*        HEADER         */
+/*        HEADER         */
 /* --------------------- */
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent; /* Inicialmente transparente */
+    box-shadow: none; /* Remove a sombra inicial */
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; /* Transição suave no padding também */
+    padding: 0.5rem 0; /* DIMINUI O PADDING VERTICAL INICIAL */
+}
+
+.header.scrolled {
+    background-color: #fff; /* Branco ao rolar */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao rolar */
+    padding: 0.5rem 0; /* MANTÉM O PADDING AO SCROLL */
 }
 
 .header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1.5rem; /* DIMINUI O PADDING VERTICAL DO CONTAINER */
 }
 
 .logo img.logo-sem-fundo {
-  height: 3rem;
-  width: auto;
+    height: auto; /* Mantém a proporção da imagem */
+    width: 120px; /* DIMINUI A LARGURA INICIAL DO LOGO */
+    transition: width 0.3s ease; /* Transição suave na largura do logo */
+}
+
+.header.scrolled .logo img.logo-sem-fundo {
+    width: 100px; /* DIMINUI AINDA MAIS O LOGO AO SCROLL (OPCIONAL) */
 }
 
 .nav {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  align-items: center;
+    display: flex;
+    gap: 1rem; /* DIMINUI O GAP ENTRE OS ITENS DE NAVEGAÇÃO */
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .nav a {
-  color: #4A5568;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+    color: #4A5568;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem; /* DIMINUI O TAMANHO DA FONTE DA NAVEGAÇÃO */
+    transition: color 0.2s;
 }
 
 .nav a:hover,
 .nav a.active {
-  color: #38A169;
+    color: #38A169;
 }
 
 .nav .btn {
-  background: #38A169;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  transition: background 0.2s;
+    background: #38A169;
+    color: white;
+    padding: 0.4rem 0.8rem; /* DIMINUI O PADDING DO BOTÃO */
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.85rem; /* DIMINUI O TAMANHO DA FONTE DO BOTÃO */
+    transition: background 0.2s;
 }
 
 .nav .btn:hover {
-  background: #2F855A;
+    background: #2F855A;
 }
 
 /* --------------------- */
-/*       CONTEÚDO        */
+/*       CONTEÚDO        */
 /* --------------------- */
 
 .profile-container {
-  margin-top: 2rem;
-  padding: 2rem 1rem;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
 }
 
 .profile-container h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #276749;
-  margin-bottom: 1.5rem;
-  text-align: center;
+    font-size: 1.8rem; /* DIMINUI O TAMANHO DO TÍTULO */
+    font-weight: 700;
+    color: #276749;
+    margin-bottom: 1.2rem; /* DIMINUI A MARGEM INFERIOR DO TÍTULO */
+    text-align: center;
 }
 
 .profile-container p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #4A5568;
-  margin-bottom: 1.25rem;
-  text-align: justify;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+    font-size: 1rem; /* DIMINUI O TAMANHO DO PARÁGRAFO */
+    line-height: 1.5; /* DIMINUI O ESPAÇAMENTO ENTRE AS LINHAS */
+    color: #4A5568;
+    margin-bottom: 1rem; /* DIMINUI A MARGEM INFERIOR DO PARÁGRAFO */
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Missão, Visão e Valores */
 
 .missao-visao-valores {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 3rem auto;
-  max-width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* DIMINUI O GAP ENTRE OS CARDS */
+    margin: 2rem auto; /* DIMINUI A MARGEM SUPERIOR E INFERIOR */
+    max-width: 960px;
 }
 
 .missao-visao-valores .card {
-  flex: 1 1 280px;
-  background: #fff; /* fundo branco */
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex: 1 1 280px;
+    background: #fff; /* fundo branco */
+    padding: 1rem; /* DIMINUI O PADDING DO CARD */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .missao-visao-valores h3 {
-  color: #276749;
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+    color: #276749;
+    font-size: 1.1rem; /* DIMINUI O TAMANHO DO TÍTULO DO CARD */
+    margin-bottom: 0.5rem; /* DIMINUI A MARGEM INFERIOR DO TÍTULO DO CARD */
 }
 
 .missao-visao-valores ul {
-  padding-left: 1.25rem;
-  color: #4A5568;
+    padding-left: 1rem; /* DIMINUI O PADDING ESQUERDO DA LISTA */
+    color: #4A5568;
+    font-size: 0.9rem; /* DIMINUI O TAMANHO DA FONTE DA LISTA */
 }
 
 .missao-visao-valores ul li {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem; /* DIMINUI A MARGEM INFERIOR DO ITEM DA LISTA */
 }
 
 /* Como Funciona */
 
 .como-funciona {
-  margin: 3rem auto;
-  text-align: center;
-  padding: 0 1rem;
+    margin: 2rem auto; /* DIMINUI A MARGEM SUPERIOR E INFERIOR */
+    text-align: center;
+    padding: 0 1rem;
 }
 
 .como-funciona h3 {
-  font-size: 1.75rem;
-  color: #276749;
-  margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* DIMINUI O TAMANHO DO TÍTULO */
+    color: #276749;
+    margin-bottom: 1rem; /* DIMINUI A MARGEM INFERIOR */
 }
 
 .como-funciona ol {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-  color: #4A5568;
-  line-height: 1.7;
-  padding-left: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    color: #4A5568;
+    line-height: 1.6; /* DIMINUI O ESPAÇAMENTO ENTRE AS LINHAS */
+    padding-left: 1rem; /* DIMINUI O PADDING ESQUERDO */
+    font-size: 0.95rem; /* DIMINUI O TAMANHO DA FONTE */
 }
 
 .como-funciona li {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+    margin-bottom: 0.8rem; /* DIMINUI A MARGEM INFERIOR */
+    font-size: 0.95rem; /* DIMINUI O TAMANHO DA FONTE */
 }
 
 /* Depoimentos */
 
 .depoimentos {
-  margin: 3rem auto;
-  text-align: center;
+    margin: 2rem auto; /* DIMINUI A MARGEM SUPERIOR E INFERIOR */
+    text-align: center;
 }
 
 .depoimentos h3 {
-  font-size: 1.75rem;
-  color: #276749;
-  margin-bottom: 2rem;
+    font-size: 1.5rem; /* DIMINUI O TAMANHO DO TÍTULO */
+    color: #276749;
+    margin-bottom: 1.5rem; /* DIMINUI A MARGEM INFERIOR */
 }
 
 .testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #4A5568;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* DIMINUI O GAP ENTRE OS DEPOIMENTOS */
+    max-width: 800px;
+    margin: 0 auto;
+    color: #4A5568;
+    font-size: 0.95rem; /* DIMINUI O TAMANHO DA FONTE */
 }
 
 .testimonials blockquote {
-  background: #F0FFF4; /* verde claro suave */
-  border-left: 4px solid #38A169;
-  padding: 1rem 1.25rem;
-  border-radius: 0.25rem;
-  font-style: italic;
+    background: #F0FFF4; /* verde claro suave */
+    border-left: 3px solid #38A169; /* DIMINUI A LARGURA DA BORDA */
+    padding: 0.8rem 1rem; /* DIMINUI O PADDING */
+    border-radius: 0.25rem;
+    font-style: italic;
 }
 
 .testimonials cite {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #2F855A;
+    display: block;
+    margin-top: 0.3rem; /* DIMINUI A MARGEM SUPERIOR */
+    font-size: 0.8rem; /* DIMINUI O TAMANHO DA FONTE */
+    color: #2F855A;
 }
 
 /* Chamada para Ação */
 
 .cta {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: #F0FFF4; /* verde claro padrão anterior */
-  border-radius: 0.5rem;
-  margin: 4rem auto;
+    text-align: center;
+    padding: 2rem 1rem; /* DIMINUI O PADDING */
+    background: #F0FFF4; /* verde claro padrão anterior */
+    border-radius: 0.5rem;
+    margin: 3rem auto; /* DIMINUI A MARGEM SUPERIOR E INFERIOR */
 }
 
 .cta h3 {
-  font-size: 1.75rem;
-  color: #276749;
-  margin-bottom: 1rem;
+    font-size: 1.5rem; /* DIMINUI O TAMANHO DO TÍTULO */
+    color: #276749;
+    margin-bottom: 0.8rem; /* DIMINUI A MARGEM INFERIOR */
 }
 
 .btn-cta {
-  display: inline-block;
-  background: #38A169;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-  font-size: 1rem;
+    display: inline-block;
+    background: #38A169;
+    color: white;
+    padding: 0.6rem 1.2rem; /* DIMINUI O PADDING DO BOTÃO */
+    border-radius: 9999px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-size: 0.9rem; /* DIMINUI O TAMANHO DA FONTE DO BOTÃO */
 }
 
 .btn-cta:hover {
-  background: #2F855A;
+    background: #2F855A;
 }
 
 /* --------------------- */
-/*        FOOTER         */
+/*        FOOTER         */
 /* --------------------- */
 
 .footer {
-  background: #2D3748;
-  color: #E2E8F0;
-  padding: 3rem 1.5rem;
+    background: #2D3748;
+    color: #E2E8F0;
+    padding: 2rem 1.5rem; /* DIMINUI O PADDING */
+    font-size: 0.85rem; /* DIMINUI O TAMANHO DA FONTE */
 }
 
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem; /* DIMINUI O GAP */
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 .footer h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+    font-size: 1.1rem; /* DIMINUI O TAMANHO DO TÍTULO */
+    font-weight: 700;
+    margin-bottom: 0.6rem; /* DIMINUI A MARGEM INFERIOR */
 }
 
 .footer p,
 .footer a,
 .footer li {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #CBD5E0;
-  text-decoration: none;
+    font-size: 0.85rem; /* DIMINUI O TAMANHO DA FONTE */
+    line-height: 1.4; /* DIMINUI O ESPAÇAMENTO ENTRE AS LINHAS */
+    color: #CBD5E0;
+    text-decoration: none;
 }
 
 .footer a:hover {
-  color: #68D391;
+    color: #68D391;
 }
 
 .footer-bottom {
-  text-align: center;
-  margin-top: 2rem;
-  border-top: 1px solid #4A5568;
-  padding-top: 1rem;
-  font-size: 0.875rem;
-  color: #A0AEC0;
+    text-align: center;
+    margin-top: 1.5rem; /* DIMINUI A MARGEM SUPERIOR */
+    border-top: 1px solid #4A5568;
+    padding-top: 0.8rem; /* DIMINUI O PADDING SUPERIOR */
+    font-size: 0.8rem; /* DIMINUI O TAMANHO DA FONTE */
+    color: #A0AEC0;
 }
 
 /* --------------------- */
-/*      RESPONSIVO       */
+/*      RESPONSIVO       */
 /* --------------------- */
 
 @media (max-width: 768px) {
-  .header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1.5rem; /* AJUSTA O PADDING EM TELAS MENORES */
+    }
 
-  .nav {
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-  }
+    .nav {
+        justify-content: center;
+        gap: 0.8rem; /* DIMINUI O GAP EM TELAS MENORES */
+        margin-top: 0.3rem; /* DIMINUI A MARGEM SUPERIOR EM TELAS MENORES */
+    }
 
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem; /* DIMINUI O GAP EM TELAS MENORES */
+    }
 
-  .missao-visao-valores {
-    flex-direction: column;
-  }
+    .missao-visao-valores {
+        flex-direction: column;
+        gap: 1rem; /* DIMINUI O GAP EM TELAS MENORES */
+        margin: 1.5rem auto; /* DIMINUI A MARGEM EM TELAS MENORES */
+    }
 
-  .testimonials {
-    padding: 0 1rem;
-  }
+    .testimonials {
+        padding: 0 1rem;
+        font-size: 0.9rem; /* AJUSTA O TAMANHO DA FONTE EM TELAS MENORES */
+    }
 
-  .como-funciona ol {
-    padding-left: 1rem;
-  }
+    .como-funciona ol {
+        padding-left: 0.8rem; /* DIMINUI O PADDING EM TELAS MENORES */
+        font-size: 0.9rem; /* AJUSTA O TAMANHO DA FONTE EM TELAS MENORES */
+    }
 
-  .profile-container h2,
-  .como-funciona h3,
-  .depoimentos h3,
-  .cta h3 {
-    font-size: 1.5rem;
-  }
+    .profile-container h2,
+    .como-funciona h3,
+    .depoimentos h3,
+    .cta h3 {
+        font-size: 1.3rem; /* DIMINUI O TAMANHO DO TÍTULO EM TELAS MENORES */
+        margin-bottom: 0.8rem; /* DIMINUI A MARGEM INFERIOR EM TELAS MENORES */
+    }
 
-  .profile-container p,
-  .como-funciona li {
-    font-size: 1rem;
-  }
+    .profile-container p,
+    .como-funciona li {
+        font-size: 0.9rem; /* DIMINUI O TAMANHO DA FONTE EM TELAS MENORES */
+        margin-bottom: 0.6rem; /* DIMINUI A MARGEM INFERIOR EM TELAS MENORES */
+    }
+}
+
+/* --------------------- */
+/* Ajuste do Logo no Header (Página Sobre) */
+/* --------------------- */
+.header .logo img.logo-sem-fundo {
+    height: auto; /* Mantém a proporção da imagem */
+    width: 120px; /* DIMINUI A LARGURA INICIAL DO LOGO */
+}
+
+/* Se você precisar de um tamanho menor em telas menores, pode adicionar media queries */
+@media (max-width: 768px) {
+    .header .logo img.logo-sem-fundo {
+        width: 100px; /* Tamanho menor para telas menores, se desejado */
+    }
+}
+
+@media (max-width: 480px) {
+    .header .logo img.logo-sem-fundo {
+        width: 80px; /* Tamanho ainda menor para telas muito pequenas, se desejado */
+    }
 }

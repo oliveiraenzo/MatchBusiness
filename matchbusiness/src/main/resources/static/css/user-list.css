@@ -1,0 +1,277 @@
+/* Reset básico e base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #2c3e50;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 50px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-radius: 12px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: #34495e;
+    border-bottom: 3px solid #3ccc4d;
+    padding-bottom: 10px;
+}
+
+/* Mensagem de erro */
+.error-message {
+    color: #c0392b;
+    background: #fdecea;
+    border: 1.5px solid #c0392b;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(192, 57, 43, 0.2);
+}
+
+/* Botões base */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+    user-select: none;
+    border: none;
+    color: #3ccc4d;
+}
+
+/* Botão principal */
+.btn-primary {
+    background-color: #3ccc4d;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.35);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #1ac52e;
+    box-shadow: 0 6px 18px rgba(41, 128, 185, 0.5);
+    outline: none;
+}
+
+/* Botões de ação na tabela */
+.btn-edit {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+}
+
+.btn-edit:hover,
+.btn-edit:focus {
+    background-color: #1e8449;
+    outline: none;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.btn-delete:hover,
+.btn-delete:focus {
+    background-color: #c0392b;
+    outline: none;
+}
+
+/* Botão desabilitado para excluir superMaster */
+.btn-delete.disabled {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+/* Botões promover/despromover */
+.btn-promote {
+    background-color: #1ac52e;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.btn-promote:hover,
+.btn-promote:focus {
+    background-color: #1c5980;
+    outline: none;
+}
+
+.btn-demote {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.btn-demote:hover,
+.btn-demote:focus {
+    background-color: #d78e0a;
+    outline: none;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    font-size: 0.95rem;
+    table-layout: fixed;
+}
+
+thead tr {
+    background-color: #3ccc4d;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 12px;
+}
+
+thead th {
+    padding: 16px 20px;
+    text-align: left;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    user-select: none;
+}
+
+tbody tr {
+    background: #ecf0f1;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+tbody tr:hover {
+    background-color: #d6e9fb;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+tbody td {
+    padding: 14px 20px;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+}
+
+/* Links dentro das células */
+td.actions {
+    white-space: nowrap;
+}
+
+/* Links dentro da tabela */
+a {
+    color: #3ccc4d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px;
+    }
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        width: 100%;
+    }
+    thead tr {
+        display: none;
+    }
+    tbody tr {
+        margin-bottom: 18px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        padding: 15px;
+    }
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+    }
+    tbody td:last-child {
+        border-bottom: none;
+    }
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #7f8c8d;
+        flex-basis: 40%;
+        text-align: left;
+    }
+    td.actions {
+        white-space: normal;
+        margin-top: 10px;
+    }
+}
+
+.logout-container {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.btn-logout {
+    background-color: #c0392b;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(192, 57, 43, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    color: #3ccc4d;
+}
+
+.btn-logout:hover,
+.btn-logout:focus {
+    background-color: #a93226;
+    box-shadow: 0 6px 20px rgba(169, 50, 38, 0.6);
+    outline: none;
+}

@@ -22,15 +22,20 @@ public class HomeController {
     }
 
     // Página após login ("/dashboard")
-    @GetMapping("/dashboard")
-    public String dashboard(Model model, Authentication authentication) {
-        // Obtém o e-mail do usuário autenticado
-        String email = authentication.getName();
-        // Busca o usuário no banco (certifique-se de ter um método findByEmail() no serviço)
-        Usuario currentUser = usuarioRepository.findByEmail(email);
-        model.addAttribute("currentUser", currentUser);
-        return "dashboard";
+@GetMapping("/dashboard")
+public String dashboard(Model model, Authentication authentication) {
+    if (authentication != null && authentication.getAuthorities().stream()
+            .anyMatch(auth -> auth.getAuthority().equals("ROLE_MASTER"))) {
+        return "redirect:/master/users";
     }
+
+    // Obtém o e-mail do usuário autenticado
+    String email = authentication.getName();
+    Usuario currentUser = usuarioRepository.findByEmail(email);
+    model.addAttribute("currentUser", currentUser);
+    return "dashboard"; // templates/dashboard.html
+}
+
 
     // Página "Sobre" ("/sobre")
 @GetMapping("/sobre")

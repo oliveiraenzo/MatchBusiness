@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuários - Administração</title>
-    <!-- Link para o CSS que você utiliza -->
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/user-list.css}">
 </head>
 <body>
     <div class="container">
         <h2>Lista de Usuários</h2>
 
         <!-- Exibe uma mensagem de erro caso o parâmetro 'errorMessage' esteja presente -->
-        <div th:if="${errorMessage != null}" style="color: red;">
+        <div th:if="${errorMessage != null}" class="error-message">
             <p th:text="${errorMessage}"></p>
         </div>
 
@@ -19,7 +18,7 @@
         <a th:href="@{/master/users/new}" class="btn">Novo Usuário</a>
 
         <!-- Tabela de usuários -->
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -39,8 +38,6 @@
                     <td th:text="${user.master}">false</td>
                     <td th:text="${user.superMaster}">false</td>
                     <td>
-                        <!-- Links para ações: editar, excluir, promover e despromover.  
-                             Usamos th:href para construir a URL dinamicamente com base no ID do usuário -->
                         <a th:href="@{'/master/users/' + ${user.id} + '/edit'}">Editar</a> |
                         <a th:href="@{'/master/users/' + ${user.id} + '/delete'}" disabled 
                            th:if="${user.superMaster}">Excluir</a>
@@ -56,6 +53,13 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Botão Logout -->
+        <div style="margin-top: 20px;">
+            <form th:action="@{/logout}" method="post" onsubmit="return confirm('Deseja realmente sair?');">
+                <button type="submit" class="btn">Logout</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

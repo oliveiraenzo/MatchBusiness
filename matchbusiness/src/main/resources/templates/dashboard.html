@@ -17,7 +17,7 @@
   <header class="header">
     <div class="container">
             <div class="logo">
-                <img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo">
+                <img th:src="@{/img/logo sem fundo.png}" class="logo-sem-fundo" alt="Logo">
             </div>
             
       <nav class="nav-links">
@@ -45,15 +45,10 @@
 
         <!-- USUÁRIO -->
         <div class="user">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" />
-          <span class="user-name">Enzo Brito ▾</span>
+          <span class="user-name">Opções</span>
           <div class="dropdown">
-            <div class="user-info">
-              <strong>Enzo Brito</strong>
-              <p>enzobrito2003@hotmail.com</p>
-            </div>
             <ul>
-              <li><a th:href="@{/}">Configurações</a></li>
+              <li><a th:href="@{/user/configuracoes}">Configurações</a></li>
               <li><a th:href="@{/login?logout}">Sair</a></li>
             </ul>
           </div>

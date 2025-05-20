@@ -15,8 +15,8 @@
 <header class="header">
     <div class="container">
         <div class="logo">
-            <img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo">
-        </div>
+          <img th:src="@{/img/logo sem fundo.png}" class="logo-sem-fundo" alt="Logo">
+            </div>
         <nav class="nav">
             <a th:href="@{/home}">Home</a>
             <a th:href="@{/sobre}" class="active">Sobre</a>
@@ -30,7 +30,7 @@
     <section class="intro">
         <h2>Sobre a MatchBusiness</h2>
         <p>
-            A <strong>MatchBusiness</strong> é uma plataforma inovadora que transforma conexões profissionais em oportunidades reais. 
+            A <strong>MatchBusiness</strong> é uma plataforma inovadora que transforma conexões profissionais em oportunidades reais.
             Nosso propósito é simples: aproximar pessoas com interesses complementares para conversas significativas — tudo isso ao redor de um bom café.
         </p>
         <p>
@@ -119,6 +119,27 @@
         <p>© 2025 MatchBusiness. Todos os direitos reservados.</p>
     </div>
 </footer>
+
+<script>
+    // header scroll
+    window.addEventListener("scroll", () => {
+        document.querySelector(".header")
+            .classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // fade-in ao scroll (opcional, se você quiser o mesmo efeito de fade-in dos outros elementos)
+    document.addEventListener("DOMContentLoaded", () => {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add("visible");
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    });
+</script>
 
 </body>
 </html>

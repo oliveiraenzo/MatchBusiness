@@ -1,301 +1,378 @@
-/* index.css */
-/* Dependências: reset.css, base.css */
+/* ==========================================================================
+   Base: Reset e Dependências
+   ========================================================================== */
+/* index.css depende de reset.css e base.css */
 
-/* Cabeçalho fixo */
+/* ==========================================================================
+   Header
+   ========================================================================== */
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #D9F2DC;
-  padding: 1rem 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #D9F2DC;
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .header.scrolled {
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 .header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Logo */
 .logo {
-  color: #1c4532;
-  font-weight: bold;
-  font-size: 1.25rem;
+    color: #1c4532;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.header .logo img.logo-sem-fundo {
+    height: auto; /* Mantém a proporção da imagem */
+    width: 150px; /* Ajuste este valor conforme necessário */
 }
 
 /* Navegação */
 .nav {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.nav a {
-  text-decoration: none;
-  color: #2E2E2E;
-  transition: color 0.3s ease;
-}
-.nav a:hover {
-  color: #34d399;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-/* Hero */
+.nav a {
+    text-decoration: none;
+    color: #2E2E2E;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #34d399;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
 .hero {
-  background-color: #D9F2DC;
-  padding: 3rem 0;
+    background-color: #D9F2DC;
+    padding: 3rem 0;
 }
-.hero-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
+
+.hero-content,
 .separacao1 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-  margin-top: 2rem;
-  justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.separacao1 {
+    margin-top: 2rem;
 }
 
 /* Texto do Hero */
 .text {
-  flex: 1 1 45%;
-  min-width: 280px;
-  padding: 3rem;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    flex: 1 1 45%;
+    min-width: 280px;
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
 }
+
 .text h1 {
-  color: #000000;
-  font-size: 2rem;
+    color: #000000;
+    font-size: 2rem;
 }
+
 .text h1 span {
-  color: #A3D9A5;
+    color: #A3D9A5;
 }
 
 /* Animação flutuar */
 @keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
 /* Ícone central do Hero */
 .icon-circle {
-  margin: 0 auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 12px 15px 25px rgb(163,217,165);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: float 3s ease-in-out infinite;
+    margin: 0 auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 12px 15px 25px rgb(163,217,165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 3s ease-in-out infinite;
 }
+
 .icon-main {
-  width: 90%;
-  height: 90%;
-  animation: float 3s ease-in-out infinite;
+    width: 90%;
+    height: 90%;
+    animation: float 3s ease-in-out infinite;
 }
 
-/* Overlays no Hero */
+/* Ícones flutuantes */
 .icon-overlay {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 .icon-overlay svg {
-  width: 32px;
-  height: 32px;
-  fill: #2d2d2d;
+    width: 32px;
+    height: 32px;
+    fill: #2d2d2d;
 }
+
 .overlay-calendar {
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 .overlay-user {
-  top: 20px;
-  right: 20px;
+    top: 20px;
+    right: 20px;
 }
 
-/* Fade-in ao scroll */
+/* Efeito Fade-In */
 .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Como Funciona */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Como Funciona
+   ========================================================================== */
 .como-funciona {
-  padding: 3rem 0;
-  text-align: center;
+    padding: 3rem 0;
+    text-align: center;
 }
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-  justify-content: space-between;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 280px;
-  background: #ffffff;
-  padding: 2rem 1.5rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.06);
-}
-.card-icon {
-  margin-bottom: 1rem;
-}
-.card-icon .badge {
-  width: 60px;
-  height: 60px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 0.5rem;
-}
+
 .como-funciona h2,
 .como-funciona h3 {
-  color: #000000;
+    color: #000000;
 }
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 280px;
+    background: #ffffff;
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
+}
+
+.card-icon {
+    margin-bottom: 1rem;
+}
+
+.card-icon .badge {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.5rem;
+}
+
+/* Responsivo - Cards */
 @media (max-width: 768px) {
-  .cards { justify-content: center; }
-  .card { flex: 1 1 45%; }
+    .cards { justify-content: center; }
+    .card { flex: 1 1 45%; }
 }
+
 @media (max-width: 480px) {
-  .card { flex: 1 1 100%; }
+    .card { flex: 1 1 100%; }
 }
 
-/* Métricas */
+/* ==========================================================================
+   Métricas
+   ========================================================================== */
 .metricas {
-  background: #2D2D2D;
-  color: #ffffff;
-  padding: 2rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+    background: #2D2D2D;
+    color: #ffffff;
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
+
 .metricas1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 900px;
-  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    width: 100%;
 }
+
 .metrica h3 {
-  font-size: 2.2rem;
-  color: #A3D9A5;
-  margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    color: #A3D9A5;
+    margin-bottom: 0.5rem;
 }
+
 .metrica p {
-  font-weight: 600;
-  text-align: center;
+    font-weight: 600;
+    text-align: center;
 }
 
-/* Depoimentos */
+/* ==========================================================================
+   Depoimentos
+   ========================================================================== */
 .depoimentos {
-  padding: 3rem 0;
-  text-align: center;
+    padding: 3rem 0;
+    text-align: center;
 }
-.depoimentos .cards {
-  justify-content: center;
-}
-.depoimentos .card {
-  max-width: 320px;
-  background: #ffffff;
-}
+
 .depoimentos h2 {
-  color: #000000;
+    color: #000000;
 }
 
-/* Call to Action */
+.depoimentos .cards {
+    justify-content: center;
+}
+
+.depoimentos .card {
+    max-width: 320px;
+    background: #ffffff;
+}
+
+/* ==========================================================================
+   Call to Action
+   ========================================================================== */
 .cta {
-  background: #D9F2DC;
-  color: #2d2d2d;
-  text-align: center;
-  padding: 3rem 1rem;
-}
-.cta h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #000000;
-}
-.cta p {
-  margin-bottom: 1.5rem;
-}
-.cta .button a {
-  font-size: 1.1rem;
+    background: #D9F2DC;
+    color: #2d2d2d;
+    text-align: center;
+    padding: 3rem 1rem;
 }
 
-/* Footer */
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.cta p {
+    margin-bottom: 1.5rem;
+}
+
+.cta .button a {
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 .footer {
-  background: #2D2D2D;
-  color: #ffffff;
-  padding: 2rem 0;
-  font-size: 0.9rem;
+    background: #2D2D2D;
+    color: #ffffff;
+    padding: 2rem 0;
+    font-size: 0.9rem;
 }
+
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
 }
+
 .footer-content > div {
-  flex: 1 1 200px;
+    flex: 1 1 200px;
 }
+
 .footer-content h4 {
-  margin-bottom: 0.75rem;
-  font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
 }
+
 .footer-content ul {
-  list-style: none;
+    list-style: none;
 }
+
 .footer-content ul li {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
+
 .footer-content ul li a {
-  color: #ffffff;
-  text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
 }
+
 .footer-content ul li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
 .footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1rem;
-  font-size: 0.8rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Ajuste do Logo no Header
+   ========================================================================== */
+.header .logo img.logo-sem-fundo {
+    height: auto; /* Mantém a proporção da imagem */
+    width: 150px; /* Ajuste este valor conforme necessário */
+}
+
+/* Se você precisar de um tamanho menor em telas menores, pode adicionar media queries */
+@media (max-width: 768px) {
+    .header .logo img.logo-sem-fundo {
+        width: 120px; /* Tamanho menor para telas menores, se desejado */
+    }
+}
+
+@media (max-width: 480px) {
+    .header .logo img.logo-sem-fundo {
+        width: 100px; /* Tamanho ainda menor para telas muito pequenas, se desejado */
+    }
 }

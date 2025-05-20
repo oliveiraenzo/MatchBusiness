@@ -1,0 +1,94 @@
+/* Reset e base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #2c3e50;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 50px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 12px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #34495e;
+  border-bottom: 3px solid #3ccc4d; /* verde */
+  padding-bottom: 10px;
+}
+
+form div {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #34495e;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #3ccc4d; /* verde */
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+button[type="submit"] {
+  background-color: #3ccc4d; /* verde */
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #1ac52e; /* verde mais escuro */
+  outline: none;
+}
+
+a {
+  color: #3ccc4d; /* verde */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}

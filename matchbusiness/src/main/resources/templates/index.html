@@ -9,7 +9,6 @@
     <link rel="stylesheet" th:href="@{/css/base.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
-
 </head>
 
 <body>
@@ -17,10 +16,10 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="/src/main/resources/static/img/logo sem fundo.png" class="logo-sem-fundo" alt="Logo">
+          <img th:src="@{/img/logo sem fundo.png}" class="logo-sem-fundo" alt="Logo">
             </div>
             <nav class="nav">
-                <a href="#">Home</a>
+                <a th:href="@{/}">Home</a>
                 <a th:href="@{/sobre}">Sobre</a>
                 <a th:href="@{/dashboard}">Dashboard</a>
                 <a th:href="@{/login}" class="btn">Entrar</a>
@@ -40,14 +39,14 @@
                     </div>
                 </div>
                 <div class="icon-circle fade-in">
-                    <!-- SVG da xícara com vapor (2×) -->
+                    <!-- SVG da xícara com vapor -->
                     <svg class="icon-main" width="600" height="600" viewBox="0 0 500 500"
                         xmlns="http://www.w3.org/2000/svg">
                         <!-- Vapor -->
                         <rect x="140" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
                         <rect x="200" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
                         <rect x="260" y="80" width="30" height="60" rx="15" fill="#A6DAB3" />
-                        <!-- Caneca menor -->
+                        <!-- Caneca -->
                         <path d="M150 175 h150 v100 a40 40 0 0 1 -40 40 h-70 a40 40 0 0 1 -40 -40 v-100 z"
                             stroke="#A6DAB3" stroke-width="30" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -58,7 +57,7 @@
                     <div class="icon-overlay overlay-calendar fade-in">
                         <svg viewBox="0 0 24 24">
                             <path
-                                d="M19 4h-1V2h-2v2H8V2H6v2H5 c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z" />
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z" />
                         </svg>
                     </div>
                     <div class="icon-overlay overlay-user fade-in">
@@ -83,16 +82,13 @@
                     <div class="card-icon">
                         <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="3" fill="none" stroke="#A3D9A5" stroke-width="2" />
-                            <path d="M7 20c0-2.76 2.24-5 5-5s5 2.24 5 5" fill="none" stroke="#A3D9A5"
-                                stroke-width="2" />
+                            <path d="M7 20c0-2.76 2.24-5 5-5s5 2.24 5 5" fill="none" stroke="#A3D9A5" stroke-width="2" />
                             <path d="M17 11h-2v2h-2v-2H11v-2h2V7h2v2h2v2z" fill="#A3D9A5" />
                         </svg>
                     </div>
                     <h3>Matches Estratégicos</h3>
-                    <p>
-                        Nosso algoritmo identifica profissionais com interesses complementares, criando conexões com
-                        potencial para parcerias e negócios.
-                    </p>
+                    <p>Nosso algoritmo identifica profissionais com interesses complementares, criando conexões com
+                        potencial para parcerias e negócios.</p>
                 </div>
 
                 <!-- Chat Integrado -->
@@ -103,10 +99,8 @@
                         </svg>
                     </div>
                     <h3>Chat Integrado</h3>
-                    <p>
-                        Converse diretamente pela plataforma para combinar detalhes do encontro e iniciar uma conexão
-                        antes mesmo do café.
-                    </p>
+                    <p>Converse diretamente pela plataforma para combinar detalhes do encontro e iniciar uma conexão
+                        antes mesmo do café.</p>
                 </div>
 
                 <!-- Cafés Recomendados -->
@@ -119,10 +113,8 @@
                         </svg>
                     </div>
                     <h3>Cafés Recomendados</h3>
-                    <p>
-                        Sugerimos locais estratégicos baseados na localização dos dois participantes, com ambiente
-                        adequado para networking.
-                    </p>
+                    <p>Sugerimos locais estratégicos baseados na localização dos dois participantes, com ambiente
+                        adequado para networking.</p>
                 </div>
 
                 <!-- Agendamento Simples -->
@@ -137,15 +129,12 @@
                         </svg>
                     </div>
                     <h3>Agendamento Simples</h3>
-                    <p>
-                        Integração com calendários para facilitar a organização dos encontros sem conflitos de agenda.
-                    </p>
+                    <p>Integração com calendários para facilitar a organização dos encontros sem conflitos de agenda.</p>
                 </div>
 
             </div>
         </div>
     </section>
-
 
     <section class="metricas">
         <div class="container metricas1">
