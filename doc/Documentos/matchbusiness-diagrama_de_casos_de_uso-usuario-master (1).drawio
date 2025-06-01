@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.1.1">
+  <diagram name="Page-1" id="2mK8HjrECjhPE67dpXWD">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-1" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="510" y="90" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="GfsNwMvOBse85ZGnmMTk-1" source="GfsNwMvOBse85ZGnmMTk-6" target="GfsNwMvOBse85ZGnmMTk-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GfsNwMvOBse85ZGnmMTk-2">
+          <mxGeometry x="0.1067" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="GfsNwMvOBse85ZGnmMTk-1" source="GfsNwMvOBse85ZGnmMTk-6" target="GfsNwMvOBse85ZGnmMTk-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-5" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GfsNwMvOBse85ZGnmMTk-4">
+          <mxGeometry x="-0.2445" y="2" relative="1" as="geometry">
+            <mxPoint x="2" y="-18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-6" value="&lt;font style=&quot;color: light-dark(rgb(255, 255, 255), rgb(255, 255, 255));&quot;&gt;&lt;b style=&quot;&quot;&gt;Gerenciar Usuários&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="GfsNwMvOBse85ZGnmMTk-1">
+          <mxGeometry y="70" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-7" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 246, 246));&quot;&gt;&lt;b&gt;Editar dados do usuário&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="GfsNwMvOBse85ZGnmMTk-1">
+          <mxGeometry x="130" y="160" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-8" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 246, 246));&quot;&gt;&lt;b&gt;Exibir Relatórios de Usuário&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="GfsNwMvOBse85ZGnmMTk-1">
+          <mxGeometry x="130" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GfsNwMvOBse85ZGnmMTk-9" target="GfsNwMvOBse85ZGnmMTk-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GfsNwMvOBse85ZGnmMTk-9" target="GfsNwMvOBse85ZGnmMTk-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-9" value="&lt;b&gt;&lt;i&gt;Usuário Master (Administrador)&lt;/i&gt;&lt;/b&gt;&lt;div&gt;Responsável pela gestão dos usuários e pela manutenção das&amp;nbsp;&lt;/div&gt;&lt;div&gt;configurações administrativas do sistema.&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="160" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="GfsNwMvOBse85ZGnmMTk-18" target="GfsNwMvOBse85ZGnmMTk-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-15" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=0;" vertex="1" connectable="0" parent="GfsNwMvOBse85ZGnmMTk-14">
+          <mxGeometry x="0.1067" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-18" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;Visualizar Relatórios e Indicadores&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;rotation=0;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="150" y="70" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfsNwMvOBse85ZGnmMTk-19" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 246, 246));&quot;&gt;&lt;b&gt;Gerenciar Relatórios&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;rotation=0;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="10" y="150" width="100" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
