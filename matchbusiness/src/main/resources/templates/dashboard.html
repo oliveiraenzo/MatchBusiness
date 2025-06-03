@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard – MatchBusiness</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/footer.css" />
@@ -13,23 +12,19 @@
 </head>
 
 <body>
-  <!-- HEADER -->
   <header class="header">
     <div class="container">
-            <div class="logo">
-                <img th:src="@{/img/logo sem fundo.png}" class="logo-sem-fundo" alt="Logo">
-            </div>
-            
+      <div class="logo">
+        <img th:src="@{/img/logo sem fundo.png}" src="img/logo sem fundo.png" class="logo-sem-fundo"
+          alt="Logo MatchBusiness">
+      </div>
       <nav class="nav-links">
-        <a th:href="@{/home}">Home</a>
-        <a th:href="@{/sobre}">Sobre</a>
-        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/home}" href="#">Home</a>
+        <a th:href="@{/sobre}" href="#">Sobre</a>
+        <a th:href="@{/dashboard}" href="#">Dashboard</a>
       </nav>
-
       <div class="actions">
         <input type="text" class="search" placeholder="Buscar..." />
-
-        <!-- NOTIFICAÇÕES -->
         <div class="notif">
           🔔 <span class="badge">2</span>
           <div class="notif-dropdown">
@@ -42,14 +37,12 @@
             <a href="#" class="see-all">Ver todas</a>
           </div>
         </div>
-
-        <!-- USUÁRIO -->
         <div class="user">
           <span class="user-name">Opções</span>
           <div class="dropdown">
             <ul>
-              <li><a th:href="@{/user/configuracoes}">Configurações</a></li>
-              <li><a th:href="@{/login?logout}">Sair</a></li>
+              <li><a th:href="@{/user/configuracoes}" href="#">Configurações</a></li>
+              <li><a th:href="@{/login?logout}" href="#">Sair</a></li>
             </ul>
           </div>
         </div>
@@ -57,19 +50,19 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="container">
-    <!-- TABS -->
     <div class="tabs">
       <button id="tab-suggestions" class="active">☑ Sugestões de Match</button>
       <button id="tab-scheduled">📅 Agendados</button>
       <button id="tab-messages">💬 Mensagens</button>
+      <button id="tab-calendar">🗓️ Calendário</button>
     </div>
 
-    <!-- SUGESTÕES -->
     <section id="content-suggestions" class="cards fade-in visible">
-      <!-- Card 1 -->
-      <article class="card">
+      <article class="card suggestion-card" data-user-id="juliana" data-user-name="Juliana Almeida"
+        data-user-avatar="https://randomuser.me/api/portraits/women/44.jpg" data-user-title="Designer UX/UI"
+        data-user-interests='["Design", "Tecnologia", "Inovação", "Fotografia", "Viagens", "Startups"]'
+        data-user-about="Apaixonada por criar experiências de usuário intuitivas e esteticamente agradáveis. Buscando conexões para discutir as últimas tendências em design e tecnologia.">
         <header>
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Juliana Almeida" />
           <div>
@@ -78,20 +71,16 @@
           </div>
         </header>
         <div class="label">Interesses</div>
-        <ul class="tags">
-          <li>Design</li><li>Tecnologia</li><li>Inovação</li>
-        </ul>
-        <footer>
-          <span>💬 Chat</span>
-          <div class="actions-btns">
-            <button class="deny" aria-label="Recusar">❌</button>
-            <button class="accept" aria-label="Aceitar">✅</button>
-          </div>
+        <ul class="tags"></ul>
+        <footer><span>Clique para ver perfil</span>
+          <div class="actions-btns"><button class="deny" aria-label="Recusar">❌</button><button class="accept"
+              aria-label="Aceitar">✅</button></div>
         </footer>
       </article>
-
-      <!-- Card 2 -->
-      <article class="card">
+      <article class="card suggestion-card" data-user-id="rafael" data-user-name="Rafael Souza"
+        data-user-avatar="https://randomuser.me/api/portraits/men/43.jpg" data-user-title="Desenvolvedor Full Stack"
+        data-user-interests='["Programação", "Startups", "IA", "Games", "Café", "Música Eletrônica"]'
+        data-user-about="Entusiasta de novas tecnologias e sempre em busca de desafios. Adoro um bom café para acompanhar uma conversa sobre programação.">
         <header>
           <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Rafael Souza" />
           <div>
@@ -100,20 +89,16 @@
           </div>
         </header>
         <div class="label">Interesses</div>
-        <ul class="tags">
-          <li>Programação</li><li>Startups</li><li>IA</li>
-        </ul>
-        <footer>
-          <span>💬 Chat</span>
-          <div class="actions-btns">
-            <button class="deny" aria-label="Recusar">❌</button>
-            <button class="accept" aria-label="Aceitar">✅</button>
-          </div>
+        <ul class="tags"></ul>
+        <footer><span>Clique para ver perfil</span>
+          <div class="actions-btns"><button class="deny" aria-label="Recusar">❌</button><button class="accept"
+              aria-label="Aceitar">✅</button></div>
         </footer>
       </article>
-
-      <!-- Card 3 -->
-      <article class="card">
+      <article class="card suggestion-card" data-user-id="camila" data-user-name="Camila Ribeiro"
+        data-user-avatar="https://randomuser.me/api/portraits/women/55.jpg" data-user-title="Marketing Digital"
+        data-user-interests='["Branding", "Social Media", "Comunicação", "SEO", "Conteúdo Digital"]'
+        data-user-about="Especialista em construir marcas fortes e engajar audiências online. Vamos tomar um café e falar sobre estratégias de marketing?">
         <header>
           <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Camila Ribeiro" />
           <div>
@@ -122,64 +107,187 @@
           </div>
         </header>
         <div class="label">Interesses</div>
-        <ul class="tags">
-          <li>Branding</li><li>Social Media</li><li>Comunicação</li>
-        </ul>
-        <footer>
-          <span>💬 Chat</span>
-          <div class="actions-btns">
-            <button class="deny" aria-label="Recusar">❌</button>
-            <button class="accept" aria-label="Aceitar">✅</button>
-          </div>
+        <ul class="tags"></ul>
+        <footer><span>Clique para ver perfil</span>
+          <div class="actions-btns"><button class="deny" aria-label="Recusar">❌</button><button class="accept"
+              aria-label="Aceitar">✅</button></div>
         </footer>
       </article>
     </section>
 
-    <!-- AGENDADOS -->
     <section id="content-scheduled" class="cards fade-in" style="display:none;">
       <h2>Cafés Agendados</h2>
-
-      <!-- Café 1 -->
-      <article class="card scheduled">
-        <img class="cafe-photo" src="/src/main/resources/static/img/" alt="Café Aroma" />
+      <article class="card scheduled" data-event-id="evt001" data-event-title="Café com Marcos Oliveira"
+        data-event-date="2024-07-12" data-event-time="15:00" data-event-location-name="Café Aroma"
+        data-event-location-address="Av. Paulista, 123" data-event-person-name="Marcos Oliveira"
+        data-event-notes="Discutir projeto Alpha.">
+        <img class="cafe-photo" src="img/cafe-generico-1.jpg" alt="Café Aroma" />
         <div class="details">
           <h3>Café com Marcos Oliveira</h3>
-          <p>12 de Junho, 2023 às 15:00</p>
-          <p>📍 Café Aroma, Av. Paulista</p>
+          <p><span class="icon">📅</span> 12 de Julho, 2024 <span class="icon">🕒</span> 15:00</p>
+          <p><span class="icon">📍</span> Café Aroma, Av. Paulista</p>
           <div class="actions-btns">
             <a href="#" class="btn-outline">Enviar mensagem</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Aroma%20Av.%20Paulista" target="_blank" rel="noopener" class="btn">Ver no mapa</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Aroma%20Av.%20Paulista" target="_blank"
+              rel="noopener" class="btn">Ver no mapa</a>
           </div>
         </div>
       </article>
 
-      <!-- Café 2 -->
-      <article class="card scheduled">
-        <img class="cafe-photo" src="/src/main/resources/static/img/" alt="Starbucks Ibirapuera" />
+      <article class="card scheduled" data-event-id="evt002" data-event-title="Café com Fernanda Santos"
+        data-event-date="2024-07-15" data-event-time="10:30" data-event-location-name="Starbucks Ibirapuera"
+        data-event-location-address="Shopping Ibirapuera" data-event-person-name="Fernanda Santos"
+        data-event-notes="Networking e ideias.">
+        <img class="cafe-photo" src="img/cafe-generico-2.jpg" alt="Starbucks Ibirapuera" />
         <div class="details">
           <h3>Café com Fernanda Santos</h3>
-          <p>15 de Junho, 2023 às 10:30</p>
-          <p>📍 Starbucks, Shopping Ibirapuera</p>
+          <p><span class="icon">📅</span> 15 de Julho, 2024 <span class="icon">🕒</span> 10:30</p>
+          <p><span class="icon">📍</span> Starbucks, Shopping Ibirapuera</p>
           <div class="actions-btns">
             <a href="#" class="btn-outline">Enviar mensagem</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Starbucks%20Shopping%20Ibirapuera" target="_blank" rel="noopener" class="btn">Ver no mapa</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Starbucks%20Shopping%20Ibirapuera" target="_blank"
+              rel="noopener" class="btn">Ver no mapa</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card scheduled" data-event-id="evt003" data-event-title="Reunião de Planejamento"
+        data-event-date="2024-08-05" data-event-time="14:00" data-event-location-name="Escritório Central"
+        data-event-location-address="Rua das Palmeiras, 456" data-event-person-name="Equipe"
+        data-event-notes="Definir metas Q3.">
+        <img class="cafe-photo" src="img/reuniao.jpg" alt="Reunião" />
+        <div class="details">
+          <h3>Reunião de Planejamento</h3>
+          <p><span class="icon">📅</span> 05 de Agosto, 2024 <span class="icon">🕒</span> 14:00</p>
+          <p><span class="icon">📍</span> Escritório Central</p>
+          <div class="actions-btns">
+            <a href="#" class="btn-outline">Detalhes</a>
           </div>
         </div>
       </article>
     </section>
 
-    <!-- MENSAGENS -->
-    <section id="content-messages" class="fade-in" style="display:none;">
-      <div class="messages-empty">
-        <div class="icon">💬</div>
-        <h2>Nenhuma mensagem ainda</h2>
-        <p>Quando você aceitar um match, poderá conversar com a pessoa aqui.</p>
-        <a href="#" class="btn-suggestions">Ver sugestões de match</a>
+    <section id="content-messages" class="fade-in" style="display: none;">
+      <div class="chat-container">
+        <aside class="chat-list">
+          <h3>Conversas</h3>
+          <ul>
+            <li class="active" data-chat-id="juliana" data-chat-name="Juliana Almeida"
+              data-chat-avatar="https://randomuser.me/api/portraits/women/44.jpg" data-chat-desc="Designer UX/UI">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Juliana Almeida" />
+              <div><strong>Juliana Almeida</strong>
+                <p>Combinado! Até lá. 👍</p>
+              </div>
+            </li>
+            <li data-chat-id="rafael" data-chat-name="Rafael Souza"
+              data-chat-avatar="https://randomuser.me/api/portraits/men/43.jpg"
+              data-chat-desc="Desenvolvedor Full Stack">
+              <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Rafael Souza" />
+              <div><strong>Rafael Souza</strong>
+                <p>Sim! Seria legal trocarmos uma ideia...</p>
+              </div>
+            </li>
+            <li data-chat-id="camila" data-chat-name="Camila Ribeiro"
+              data-chat-avatar="https://randomuser.me/api/portraits/women/55.jpg" data-chat-desc="Marketing Digital">
+              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Camila Ribeiro" />
+              <div><strong>Camila Ribeiro</strong>
+                <p>Olá! Vi seu perfil e achei interessante.</p>
+              </div>
+            </li>
+            <li data-chat-id="marcos_o" data-chat-name="Marcos Oliveira"
+              data-chat-avatar="https://randomuser.me/api/portraits/men/50.jpg" data-chat-desc="Gerente de Projetos">
+              <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="Marcos Oliveira" />
+              <div><strong>Marcos Oliveira</strong>
+                <p>Confirmado para o café!</p>
+              </div>
+            </li>
+            <li data-chat-id="fernanda_s" data-chat-name="Fernanda Santos"
+              data-chat-avatar="https://randomuser.me/api/portraits/women/60.jpg"
+              data-chat-desc="Especialista em Marketing">
+              <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="Fernanda Santos" />
+              <div><strong>Fernanda Santos</strong>
+                <p>Ansiosa pelo nosso café!</p>
+              </div>
+            </li>
+          </ul>
+        </aside>
+        <div class="chat-window">
+          <header class="chat-header">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Juliana Almeida" />
+            <div>
+              <h4>Juliana Almeida</h4>
+              <p>Designer UX/UI</p>
+            </div>
+          </header>
+          <div class="chat-messages"></div>
+          <footer class="chat-input"><input type="text" placeholder="Digite sua mensagem..." /><button>Enviar</button>
+          </footer>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <section id="content-calendar" class="calendar-view fade-in" style="display: none;">
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="calendar-prev-month" aria-label="Mês anterior">‹</button>
+        <h2 id="calendar-month-year">Julho 2024</h2> <button id="calendar-next-month"
+          aria-label="Próximo mês">›</button>
+      </div>
+      <div class="calendar-grid-weekdays">
+      </div>
+      <div class="calendar-grid-days">
+      </div>
+    </div>
+    <div class="calendar-event-tooltip" style="display: none;"></div>
+  </section>
+
+  <div id="userProfileModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Fechar">×</button>
+      <div class="profile-header">
+        <img id="profileModalAvatar" src="" alt="Avatar do usuário" />
+        <h3 id="profileModalName"></h3>
+        <p id="profileModalTitle"></p>
+      </div>
+      <div class="profile-body">
+        <div id="profileModalAboutSection">
+          <h4>Sobre</h4>
+          <p id="profileModalAbout"></p>
+        </div>
+        <h4>Interesses</h4>
+        <ul id="profileModalInterests" class="tags"></ul>
+      </div>
+      <div class="profile-footer"><button id="profileModalGoToChatBtn" class="btn">Ir para Mensagem</button></div>
+    </div>
+  </div>
+
+  <div id="scheduledEventModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Fechar">×</button>
+      <div class="event-modal-header">
+        <img id="eventModalPersonAvatar" src="" alt="Avatar do Contato" class="event-person-avatar"
+          style="display:none;">
+        <h3 id="eventModalTitle"></h3>
+        <p><span class="icon">📅</span> <span id="eventModalDate"></span></p>
+        <p><span class="icon">🕒</span> <span id="eventModalTime"></span></p>
+      </div>
+      <div class="event-modal-body">
+        <h4>Local do Encontro</h4>
+        <p><span class="icon">📍</span> <strong id="eventModalLocationName"></strong> – <span
+            id="eventModalLocationAddress"></span></p>
+        <img id="eventModalImage" src="img/cafe-placeholder.jpg" alt="Foto do Local" class="event-location-photo">
+        <h4>Observações</h4>
+        <p id="eventModalNotes"></p>
+      </div>
+      <div class="event-modal-footer">
+        <button id="eventModalGoToChatBtn" class="btn btn-outline" style="display:none;">Enviar Mensagem</button>
+        <a id="eventModalMapLink" href="#" target="_blank" rel="noopener" class="btn">Ver no Mapa</a>
+        <button id="eventModalAddToCalendarBtn" class="btn btn-secondary">Adicionar ao Calendário</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer fade-in">
     <div class="container footer-content">
       <div>
@@ -189,16 +297,16 @@
       <div>
         <h4>Links Rápidos</h4>
         <ul>
-          <li><a th:href="@{/}">Home</a></li>
-          <li><a th:href="@{/sobre}">Sobre Nós</a></li>
-          <li><a th:href="@{/dashboard}">Dashboard</a></li>
+          <li><a th:href="@{/}" href="#">Home</a></li>
+          <li><a th:href="@{/sobre}" href="#">Sobre Nós</a></li>
+          <li><a th:href="@{/dashboard}" href="#">Dashboard</a></li>
         </ul>
       </div>
       <div>
         <h4>Recursos</h4>
         <ul>
-          <li><a th:href="@{/blog}">Blog</a></li>
-          <li><a th:href="@{/faq}">FAQ</a></li>
+          <li><a th:href="@{/blog}" href="#">Blog</a></li>
+          <li><a th:href="@{/faq}" href="#">FAQ</a></li>
         </ul>
       </div>
       <div>
@@ -211,15 +319,392 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    /* --- header scroll --- */
+    // Funções e variáveis globais (compartilhadas)
+    const DUMMY_MESSAGES = {
+      "juliana": [{ sender: "them", text: "Oi! Adorei seu perfil, vamos marcar um café? ☕", time: "10:31" }, { sender: "me", text: "Claro! Sexta à tarde funciona para você?", time: "10:33" }, { sender: "them", text: "Perfeito! Na Cafeteria Central às 16h?", time: "10:35" }, { sender: "me", text: "Combinado! Até lá. 👍", time: "10:36" }],
+      "rafael": [{ sender: "them", text: "Olá, tudo certo?", time: "Ontem 14:20" }, { sender: "me", text: "Oi Rafael! Tudo ótimo, e com você?", time: "Ontem 14:22" }, { sender: "them", text: "Tudo joia também. Vi que se interessa por Startups, assim como eu!", time: "Ontem 14:23" }, { sender: "me", text: "Sim! Seria legal trocarmos uma ideia sobre isso.", time: "Ontem 14:25" }],
+      "camila": [{ sender: "them", text: "Olá! Vi seu perfil e achei interessante.", time: "Hoje 09:15" }, { sender: "me", text: "Oi Camila! Obrigado. O seu também é bem legal!", time: "Hoje 09:17" }, { sender: "them", text: "Que bom! Que tal um café para falarmos sobre Branding?", time: "Hoje 09:18" }],
+      "marcos_o": [{ sender: "them", text: "Confirmado para o café na Av. Paulista dia 12!", time: "Ontem 18:00" }, { sender: "me", text: "Ótimo, Marcos! Até lá.", time: "Ontem 18:05" }],
+      "fernanda_s": [{ sender: "me", text: "Olá Fernanda, ansioso pelo nosso café no Ibirapuera!", time: "Hoje 10:00" }, { sender: "them", text: "Eu também! Vai ser ótimo.", time: "Hoje 10:02" }]
+    };
+    let currentChatId = null;
+
+    function formatTime(date) {
+      return date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function renderMessages(chatId, chatMessagesContainerEl) {
+      if (!chatMessagesContainerEl) return;
+      chatMessagesContainerEl.innerHTML = '';
+      currentChatId = chatId;
+      const messages = DUMMY_MESSAGES[chatId] || [];
+      messages.forEach(msg => {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(msg.sender === 'me' ? 'sent' : 'received');
+        const p = document.createElement('p');
+        p.textContent = msg.text;
+        messageDiv.appendChild(p);
+        const span = document.createElement('span');
+        span.textContent = msg.time;
+        messageDiv.appendChild(span);
+        chatMessagesContainerEl.appendChild(messageDiv);
+      });
+      chatMessagesContainerEl.scrollTop = chatMessagesContainerEl.scrollHeight;
+    }
+
+    function generateICS(eventData) {
+      const pad = (num) => (num < 10 ? '0' : '') + num;
+      const [year, month, day] = eventData.date.split('-').map(Number);
+      const [hours, minutes] = eventData.time.split(':').map(Number);
+      const startDate = new Date(year, month - 1, day, hours, minutes, 0);
+      const icsStartDate = `${startDate.getFullYear()}${pad(startDate.getMonth() + 1)}${pad(startDate.getDate())}T${pad(startDate.getHours())}${pad(startDate.getMinutes())}00`;
+      const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // Duração de 1 hora
+      const icsEndDate = `${endDate.getFullYear()}${pad(endDate.getMonth() + 1)}${pad(endDate.getDate())}T${pad(endDate.getHours())}${pad(endDate.getMinutes())}00`;
+      const stamp = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z';
+      const icsContent = [
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//MatchBusiness//Event//EN',
+        'BEGIN:VEVENT',
+        `UID:${eventData.id || Date.now()}@matchbusiness.com`,
+        `DTSTAMP:${stamp}`, `DTSTART:${icsStartDate}`, `DTEND:${icsEndDate}`,
+        `SUMMARY:${eventData.title || 'Compromisso'}`,
+        `DESCRIPTION:${(eventData.notes || '').replace(/\n/g, '\\n')}`,
+        `LOCATION:${(eventData.locationName || '')} - ${(eventData.locationAddress || '')}`,
+        'END:VEVENT', 'END:VCALENDAR'
+      ].join('\r\n');
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      const filename = (eventData.title || 'evento').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+      link.download = `${filename}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    }
+
+    // Função para selecionar um chat (usada por várias partes do código)
+    function selectChat(chatId, name, avatar, description) {
+      const chatHeaderImg = document.querySelector('.chat-window .chat-header img');
+      const chatHeaderName = document.querySelector('.chat-window .chat-header h4');
+      const chatHeaderDesc = document.querySelector('.chat-window .chat-header p');
+      const chatMessagesContainer = document.querySelector('.chat-window .chat-messages');
+
+      if (chatHeaderImg) { chatHeaderImg.src = avatar; chatHeaderImg.alt = name; }
+      if (chatHeaderName) chatHeaderName.textContent = name;
+      if (chatHeaderDesc) chatHeaderDesc.textContent = description;
+      renderMessages(chatId, chatMessagesContainer);
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      /* --- header scroll --- */
+      const header = document.querySelector('.header');
+      if (header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+      /* --- fade-in ao scroll --- */
+      const fadeInObserver = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeInObserver.unobserve(e.target); } }); }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => fadeInObserver.observe(el));
+
+      /* --- tabs --- */
+      const TABS_CONFIG = { 'tab-suggestions': 'content-suggestions', 'tab-scheduled': 'content-scheduled', 'tab-messages': 'content-messages' };
+      Object.keys(TABS_CONFIG).forEach(tabId => {
+        const tabButton = document.getElementById(tabId);
+        if (tabButton) {
+          tabButton.addEventListener('click', () => {
+            Object.keys(TABS_CONFIG).forEach(id => { const btn = document.getElementById(id); if (btn) btn.classList.toggle('active', id === tabId); });
+            Object.entries(TABS_CONFIG).forEach(([btnKey, sectionId]) => {
+              const sect = document.getElementById(sectionId);
+              if (sect) sect.style.display = (btnKey === tabId) ? (sectionId === 'content-suggestions' ? 'grid' : 'block') : 'none';
+            });
+          });
+        }
+      });
+
+      /* --- dropdowns --- */
+      const userEl = document.querySelector('.actions .user');
+      const userDropdown = userEl ? userEl.querySelector('.dropdown') : null;
+      if (userEl) userEl.addEventListener('click', e => { e.stopPropagation(); if (userDropdown) userDropdown.classList.toggle('active'); });
+      const notifEl = document.querySelector('.actions .notif');
+      const notifDropdown = notifEl ? notifEl.querySelector('.notif-dropdown') : null;
+      if (notifEl) notifEl.addEventListener('click', e => { e.stopPropagation(); if (notifDropdown) notifEl.classList.toggle('active'); if (userDropdown) userDropdown.classList.remove('active'); });
+      document.addEventListener('click', (e) => {
+        if (notifEl && !notifEl.contains(e.target) && notifDropdown && notifEl.classList.contains('active')) notifEl.classList.remove('active');
+        if (userEl && !userEl.contains(e.target) && userDropdown && userDropdown.classList.contains('active')) userDropdown.classList.remove('active');
+      });
+
+      // --- CHAT FUNCTIONALITY ---
+      const chatListItems = document.querySelectorAll('.chat-list li');
+      const chatInput = document.querySelector('.chat-window .chat-input input');
+      const chatSendButton = document.querySelector('.chat-window .chat-input button');
+
+      chatListItems.forEach(item => {
+        item.addEventListener('click', () => {
+          chatListItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          selectChat(item.dataset.chatId, item.dataset.chatName, item.dataset.chatAvatar, item.dataset.chatDesc);
+        });
+      });
+
+      function sendMessage() {
+        if (!chatInput || !currentChatId) return;
+        const messageText = chatInput.value.trim();
+        if (messageText === '') return;
+        const newMessageData = { sender: 'me', text: messageText, time: formatTime(new Date()) };
+        if (!DUMMY_MESSAGES[currentChatId]) DUMMY_MESSAGES[currentChatId] = [];
+        DUMMY_MESSAGES[currentChatId].push(newMessageData);
+
+        const chatMessagesContainer = document.querySelector('.chat-window .chat-messages'); // Garante que temos o container correto
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        const p = document.createElement('p'); p.textContent = newMessageData.text; messageDiv.appendChild(p);
+        const span = document.createElement('span'); span.textContent = newMessageData.time; messageDiv.appendChild(span);
+        if (chatMessagesContainer) { chatMessagesContainer.appendChild(messageDiv); chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight; }
+
+        const activeChatItemInList = document.querySelector(`.chat-list li[data-chat-id="${currentChatId}"]`);
+        if (activeChatItemInList) { const lastMessageP = activeChatItemInList.querySelector('div p'); if (lastMessageP) lastMessageP.textContent = messageText.length > 25 ? messageText.substring(0, 22) + "..." : messageText; }
+        chatInput.value = ''; chatInput.focus();
+      }
+      if (chatSendButton) chatSendButton.addEventListener('click', sendMessage);
+      if (chatInput) chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { event.preventDefault(); sendMessage(); } });
+
+      const initiallyActiveChatItem = document.querySelector('.chat-list li.active');
+      if (initiallyActiveChatItem) initiallyActiveChatItem.click();
+      else if (chatListItems.length > 0) chatListItems[0].click();
+
+      // --- PROFILE MODAL FUNCTIONALITY & CARD POPULATION ---
+      const userProfileModal = document.getElementById('userProfileModal');
+      if (userProfileModal) {
+        const modalCloseBtn = userProfileModal.querySelector('.modal-close-btn');
+        const profileModalAvatar = document.getElementById('profileModalAvatar');
+        const profileModalName = document.getElementById('profileModalName');
+        const profileModalTitle = document.getElementById('profileModalTitle');
+        const profileModalAboutSection = document.getElementById('profileModalAboutSection');
+        const profileModalAbout = document.getElementById('profileModalAbout');
+        const profileModalInterestsList = document.getElementById('profileModalInterests');
+        const profileModalGoToChatBtn = document.getElementById('profileModalGoToChatBtn');
+        let modalCurrentUserId = null;
+
+        function openProfileModal(userData) {
+          modalCurrentUserId = userData.userId;
+          if (profileModalAvatar) { profileModalAvatar.src = userData.userAvatar; profileModalAvatar.alt = userData.userName; }
+          if (profileModalName) profileModalName.textContent = userData.userName;
+          if (profileModalTitle) profileModalTitle.textContent = userData.userTitle;
+          if (userData.userAbout && profileModalAboutSection && profileModalAbout) { profileModalAbout.textContent = userData.userAbout; profileModalAboutSection.style.display = ''; }
+          else if (profileModalAboutSection) { profileModalAboutSection.style.display = 'none'; }
+
+          if (profileModalInterestsList) profileModalInterestsList.innerHTML = '';
+          const interestsString = userData.userInterests; // CORRIGIDO para userInterests
+          if (interestsString) {
+            try {
+              const interestsArray = JSON.parse(interestsString);
+              if (Array.isArray(interestsArray)) {
+                interestsArray.forEach(interestText => {
+                  const li = document.createElement('li');
+                  li.textContent = interestText;
+                  if (profileModalInterestsList) profileModalInterestsList.appendChild(li);
+                });
+              }
+            } catch (e) {
+              console.warn("Interesses (modal) não são JSON válido, tratando como string:", interestsString, e);
+              if (typeof interestsString === 'string' && profileModalInterestsList) {
+                interestsString.split(',').forEach(interestText => {
+                  const li = document.createElement('li');
+                  li.textContent = interestText.trim();
+                  profileModalInterestsList.appendChild(li);
+                });
+              }
+            }
+          } else { console.warn("Atributo data-user-interests está vazio ou não definido no card para o modal."); }
+
+          userProfileModal.style.display = 'flex';
+          setTimeout(() => userProfileModal.classList.add('visible'), 10);
+        }
+        function closeProfileModal() {
+          if (!userProfileModal) return;
+          userProfileModal.classList.remove('visible');
+          setTimeout(() => userProfileModal.style.display = 'none', 300);
+          modalCurrentUserId = null;
+        }
+
+        document.querySelectorAll('.suggestion-card').forEach(card => {
+          const interestsListElemOnCard = card.querySelector('ul.tags');
+          const interestsStringOnCard = card.dataset.userInterests;
+          if (interestsListElemOnCard && interestsStringOnCard) {
+            interestsListElemOnCard.innerHTML = '';
+            try {
+              const interests = JSON.parse(interestsStringOnCard);
+              if (Array.isArray(interests)) {
+                interests.slice(0, 3).forEach(interestText => {
+                  const li = document.createElement('li');
+                  li.textContent = interestText;
+                  interestsListElemOnCard.appendChild(li);
+                });
+                if (interests.length > 3) {
+                  const liMore = document.createElement('li');
+                  liMore.textContent = `+${interests.length - 3}`;
+                  liMore.style.fontWeight = 'bold';
+                  liMore.style.cursor = 'default';
+                  interestsListElemOnCard.appendChild(liMore);
+                }
+              }
+            } catch (e) { console.warn("Erro ao popular interesses no card (data-user-interests):", card.dataset.userName, e); }
+          }
+          card.addEventListener('click', () => { openProfileModal(card.dataset); });
+        });
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProfileModal);
+        userProfileModal.addEventListener('click', e => { if (e.target === userProfileModal) closeProfileModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && userProfileModal.classList.contains('visible')) closeProfileModal(); });
+
+        if (profileModalGoToChatBtn) {
+          profileModalGoToChatBtn.addEventListener('click', () => {
+            if (modalCurrentUserId) {
+              const messagesTabButton = document.getElementById('tab-messages');
+              if (messagesTabButton) messagesTabButton.click();
+              let chatListItemToOpen = document.querySelector(`.chat-list li[data-chat-id="${modalCurrentUserId}"]`);
+              if (!chatListItemToOpen) {
+                const userCardDataForChat = document.querySelector(`.suggestion-card[data-user-id="${modalCurrentUserId}"]`);
+                const chatListUl = document.querySelector('.chat-list ul');
+                if (userCardDataForChat && chatListUl) {
+                  const newLi = document.createElement('li');
+                  const newChatName = userCardDataForChat.dataset.userName;
+                  const newChatAvatar = userCardDataForChat.dataset.userAvatar;
+                  const newChatDesc = userCardDataForChat.dataset.userTitle;
+                  newLi.dataset.chatId = modalCurrentUserId; newLi.dataset.chatName = newChatName; newLi.dataset.chatAvatar = newChatAvatar; newLi.dataset.chatDesc = newChatDesc;
+                  newLi.innerHTML = `<img src="${newChatAvatar}" alt="${newChatName}"><div><strong>${newChatName}</strong><p>Nova conversa...</p></div>`;
+                  newLi.addEventListener('click', () => { document.querySelectorAll('.chat-list li').forEach(i => i.classList.remove('active')); newLi.classList.add('active'); selectChat(newLi.dataset.chatId, newLi.dataset.chatName, newLi.dataset.chatAvatar, newLi.dataset.chatDesc); });
+                  chatListUl.prepend(newLi);
+                  if (!DUMMY_MESSAGES[modalCurrentUserId]) DUMMY_MESSAGES[modalCurrentUserId] = [{ sender: "system", text: `Conversa iniciada com ${newChatName}.`, time: formatTime(new Date()) }];
+                  chatListItemToOpen = newLi;
+                }
+              }
+              if (chatListItemToOpen) chatListItemToOpen.click();
+              closeProfileModal();
+            }
+          });
+        }
+      }
+
+      // --- SCHEDULED EVENT MODAL FUNCTIONALITY ---
+      const scheduledEventModal = document.getElementById('scheduledEventModal');
+      if (scheduledEventModal) {
+        const eventModalCloseBtn = scheduledEventModal.querySelector('.modal-close-btn');
+        const eventModalPersonAvatar = document.getElementById('eventModalPersonAvatar');
+        // ... (Restante das seleções de elementos do modal de agendamento)
+        const eventModalTitle = document.getElementById('eventModalTitle');
+        const eventModalDate = document.getElementById('eventModalDate');
+        const eventModalTime = document.getElementById('eventModalTime');
+        const eventModalLocationName = document.getElementById('eventModalLocationName');
+        const eventModalLocationAddress = document.getElementById('eventModalLocationAddress');
+        const eventModalImage = document.getElementById('eventModalImage');
+        const eventModalNotes = document.getElementById('eventModalNotes');
+        const eventModalGoToChatBtn = document.getElementById('eventModalGoToChatBtn');
+        const eventModalMapLink = document.getElementById('eventModalMapLink');
+        const eventModalAddToCalendarBtn = document.getElementById('eventModalAddToCalendarBtn');
+        let currentEventDataForModal = null;
+
+        function openScheduledEventModal(eventData) { /* ... (código do modal de agendamento da resposta anterior) ... */
+          currentEventDataForModal = eventData;
+          if (eventData.eventPersonAvatar && eventModalPersonAvatar) { eventModalPersonAvatar.src = eventData.eventPersonAvatar; eventModalPersonAvatar.alt = eventData.eventPersonName || 'Participante'; eventModalPersonAvatar.style.display = 'block'; }
+          else if (eventModalPersonAvatar) { eventModalPersonAvatar.style.display = 'none'; } // Ajuste para eventPersonAvatar
+          if (eventModalTitle) eventModalTitle.textContent = eventData.eventTitle;
+          if (eventModalDate) eventModalDate.textContent = new Date(eventData.eventDate.replace(/-/g, '/')).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
+          if (eventModalTime) eventModalTime.textContent = eventData.eventTime;
+          if (eventModalLocationName) eventModalLocationName.textContent = eventData.eventLocationName;
+          if (eventModalLocationAddress) eventModalLocationAddress.textContent = eventData.eventLocationAddress;
+          if (eventModalImage) { eventModalImage.src = eventData.eventImage || 'img/cafe-placeholder.jpg'; eventModalImage.alt = eventData.eventLocationName || 'Local do evento'; }
+          if (eventModalNotes) eventModalNotes.textContent = eventData.eventNotes || 'Nenhuma nota adicional.';
+          if (eventModalMapLink && eventData.eventMapLink) { eventModalMapLink.href = eventData.eventMapLink; eventModalMapLink.style.display = 'inline-block'; }
+          else if (eventModalMapLink) { eventModalMapLink.style.display = 'none'; }
+          if (eventData.eventPersonId && eventModalGoToChatBtn) { eventModalGoToChatBtn.style.display = 'inline-block'; }
+          else if (eventModalGoToChatBtn) { eventModalGoToChatBtn.style.display = 'none'; }
+          scheduledEventModal.style.display = 'flex';
+          setTimeout(() => scheduledEventModal.classList.add('visible'), 10);
+        }
+        function closeScheduledEventModal() { /* ... (código da resposta anterior) ... */
+          if (!scheduledEventModal) return;
+          scheduledEventModal.classList.remove('visible');
+          setTimeout(() => scheduledEventModal.style.display = 'none', 300);
+          currentEventDataForModal = null;
+        }
+
+        document.querySelectorAll('.scheduled-card-item').forEach(card => {
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('button') || e.target.closest('a.btn') || e.target.closest('a.btn-outline')) return;
+            openScheduledEventModal(card.dataset);
+          });
+        });
+        document.querySelectorAll('.scheduled-action-chat').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const userIdToChat = btn.dataset.userId;
+            const messagesTabButton = document.getElementById('tab-messages');
+            if (messagesTabButton) messagesTabButton.click();
+            let chatListItemToOpen = document.querySelector(`.chat-list li[data-chat-id="${userIdToChat}"]`);
+            // Adicionar lógica de criação de chat se não existir, similar ao profileModalGoToChatBtn
+            if (!chatListItemToOpen) {
+              const scheduledCard = btn.closest('.scheduled-card-item'); // Para pegar nome/avatar da pessoa do agendamento
+              const chatListUl = document.querySelector('.chat-list ul');
+              if (scheduledCard && chatListUl) {
+                const newLi = document.createElement('li');
+                const personName = scheduledCard.dataset.eventPersonName;
+                const personAvatar = scheduledCard.dataset.eventPersonAvatar;
+                newLi.dataset.chatId = userIdToChat; newLi.dataset.chatName = personName; newLi.dataset.chatAvatar = personAvatar; newLi.dataset.chatDesc = "Agendamento";
+                newLi.innerHTML = `<img src="${personAvatar}" alt="${personName}"><div><strong>${personName}</strong><p>Sobre nosso agendamento...</p></div>`;
+                newLi.addEventListener('click', () => { document.querySelectorAll('.chat-list li').forEach(i => i.classList.remove('active')); newLi.classList.add('active'); selectChat(newLi.dataset.chatId, newLi.dataset.chatName, newLi.dataset.chatAvatar, newLi.dataset.chatDesc); });
+                chatListUl.prepend(newLi);
+                if (!DUMMY_MESSAGES[userIdToChat]) DUMMY_MESSAGES[userIdToChat] = [{ sender: "system", text: `Conversa iniciada sobre o agendamento com ${personName}.`, time: formatTime(new Date()) }];
+                chatListItemToOpen = newLi;
+              }
+            }
+            if (chatListItemToOpen) chatListItemToOpen.click();
+          });
+        });
+
+        if (eventModalCloseBtn) eventModalCloseBtn.addEventListener('click', closeScheduledEventModal);
+        scheduledEventModal.addEventListener('click', e => { if (e.target === scheduledEventModal) closeScheduledEventModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && scheduledEventModal.classList.contains('visible')) closeScheduledEventModal(); });
+        if (eventModalGoToChatBtn) {
+          eventModalGoToChatBtn.addEventListener('click', () => {
+            if (currentEventDataForModal && currentEventDataForModal.eventPersonId) {
+              const userIdToChat = currentEventDataForModal.eventPersonId; // Ajuste para eventPersonId
+              const messagesTabButton = document.getElementById('tab-messages');
+              if (messagesTabButton) messagesTabButton.click();
+              let chatListItemToOpen = document.querySelector(`.chat-list li[data-chat-id="${userIdToChat}"]`);
+              if (!chatListItemToOpen) {
+                const chatListUl = document.querySelector('.chat-list ul');
+                // Usar dados de currentEventDataForModal para criar o chat item
+                if (chatListUl && currentEventDataForModal.eventPersonName && currentEventDataForModal.eventPersonAvatar) {
+                  const newLi = document.createElement('li');
+                  newLi.dataset.chatId = userIdToChat; newLi.dataset.chatName = currentEventDataForModal.eventPersonName; newLi.dataset.chatAvatar = currentEventDataForModal.eventPersonAvatar; newLi.dataset.chatDesc = "Agendamento";
+                  newLi.innerHTML = `<img src="${currentEventDataForModal.eventPersonAvatar}" alt="${currentEventDataForModal.eventPersonName}"><div><strong>${currentEventDataForModal.eventPersonName}</strong><p>Referente ao agendamento...</p></div>`;
+                  newLi.addEventListener('click', () => { document.querySelectorAll('.chat-list li').forEach(i => i.classList.remove('active')); newLi.classList.add('active'); selectChat(newLi.dataset.chatId, newLi.dataset.chatName, newLi.dataset.chatAvatar, newLi.dataset.chatDesc); });
+                  chatListUl.prepend(newLi);
+                  if (!DUMMY_MESSAGES[userIdToChat]) DUMMY_MESSAGES[userIdToChat] = [{ sender: "system", text: `Conversa iniciada sobre: ${currentEventDataForModal.eventTitle}.`, time: formatTime(new Date()) }];
+                  chatListItemToOpen = newLi;
+                }
+              }
+              if (chatListItemToOpen) chatListItemToOpen.click();
+              closeScheduledEventModal();
+            }
+          });
+        }
+        if (eventModalAddToCalendarBtn) eventModalAddToCalendarBtn.addEventListener('click', () => { if (currentEventDataForModal) generateICS(currentEventDataForModal); });
+      }
+    });
+
+    // Dentro da tag <script> no final do seu dashboard.html
+
+    /* --- header scroll (do seu script original) --- */
     window.addEventListener('scroll', () =>
       document.querySelector('.header')
-              .classList.toggle('scrolled', window.scrollY > 50));
+        .classList.toggle('scrolled', window.scrollY > 50));
 
-    /* --- fade-in ao scroll --- */
+    /* --- Início do DOMContentLoaded --- */
     document.addEventListener('DOMContentLoaded', () => {
+      /* --- fade-in ao scroll (do seu script original) --- */
       const obs = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -229,47 +714,222 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-    });
 
-    /* --- tabs --- */
-    const tabs = {
-      'tab-suggestions': 'content-suggestions',
-      'tab-scheduled'  : 'content-scheduled',
-      'tab-messages'   : 'content-messages'
-    };
-    Object.keys(tabs).forEach(tabId => {
-      document.getElementById(tabId).addEventListener('click', () => {
-        // ativa aba
-        Object.keys(tabs).forEach(id =>
-          document.getElementById(id).classList.toggle('active', id === tabId));
+      /* --- tabs (ATUALIZADO para incluir calendário) --- */
+      const TABS_CONFIG = { // Renomeei 'tabs' para TABS_CONFIG para clareza
+        'tab-suggestions': { id: 'content-suggestions', display: 'grid' },
+        'tab-scheduled': { id: 'content-scheduled', display: 'grid' }, // Ou 'block' se preferir lista
+        'tab-calendar': { id: 'content-calendar', display: 'block' }, // NOVA ABA
+        'tab-messages': { id: 'content-messages', display: 'block' }
+      };
+      Object.keys(TABS_CONFIG).forEach(tabId => {
+        const tabButton = document.getElementById(tabId);
+        if (tabButton) {
+          tabButton.addEventListener('click', () => {
+            // Ativa aba
+            Object.keys(TABS_CONFIG).forEach(id => {
+              const btn = document.getElementById(id);
+              if (btn) btn.classList.toggle('active', id === tabId);
+            });
+            // Mostra conteúdo e esconde os outros
+            Object.values(TABS_CONFIG).forEach(config => {
+              const sect = document.getElementById(config.id);
+              if (sect) sect.style.display = 'none';
+            });
+            const activeConfig = TABS_CONFIG[tabId];
+            const activeSection = document.getElementById(activeConfig.id);
+            if (activeSection) activeSection.style.display = activeConfig.display;
 
-        // mostra conteúdo
-        Object.entries(tabs).forEach(([btn, sectionId]) => {
-          const sect = document.getElementById(sectionId);
-          sect.style.display = (btn === tabId)
-            ? (sectionId === 'content-suggestions' ? 'grid' : 'block')
-            : 'none';
-        });
+            // Se a aba do calendário for ativada, renderiza/atualiza o calendário
+            if (tabId === 'tab-calendar') {
+              initializeCalendar();
+            }
+          });
+        }
       });
-    });
 
-    /* --- dropdown user --- */
-    const userEl = document.querySelector('.actions .user');
-    const dropdown = userEl.querySelector('.dropdown');
-    userEl.addEventListener('click', e => {
-      e.stopPropagation();
-      dropdown.classList.toggle('active');
-    });
-    document.addEventListener('click', () => dropdown.classList.remove('active'));
+      /* --- dropdown user (do seu script original) --- */
+      const userEl = document.querySelector('.actions .user');
+      const userDropdown = userEl ? userEl.querySelector('.dropdown') : null;
+      if (userEl && userDropdown) {
+        userEl.addEventListener('click', e => {
+          e.stopPropagation();
+          userDropdown.classList.toggle('active');
+        });
+      }
 
-    /* --- dropdown notif --- */
-    const notifEl = document.querySelector('.actions .notif');
-    notifEl.addEventListener('click', e => {
-      e.stopPropagation();
-      notifEl.classList.toggle('active');
-      dropdown.classList.remove('active'); // fecha user se aberto
-    });
-    document.addEventListener('click', () => notifEl.classList.remove('active'));
+      /* --- dropdown notif (do seu script original) --- */
+      const notifEl = document.querySelector('.actions .notif');
+      const notifDropdown = notifEl ? notifEl.querySelector('.notif-dropdown') : null;
+      if (notifEl && notifDropdown) {
+        notifEl.addEventListener('click', e => {
+          e.stopPropagation();
+          notifEl.classList.toggle('active');
+          if (userDropdown) userDropdown.classList.remove('active');
+        });
+      }
+      document.addEventListener('click', (e) => {
+        if (notifEl && notifDropdown && !notifEl.contains(e.target) && notifEl.classList.contains('active')) {
+          notifEl.classList.remove('active');
+        }
+        if (userEl && userDropdown && !userEl.contains(e.target) && userDropdown.classList.contains('active')) {
+          userDropdown.classList.remove('active');
+        }
+      });
+
+      // --- LÓGICA DO CALENDÁRIO ---
+      let currentCalendarDate = new Date(); // Data atual para o calendário
+      let scheduledEventsData = []; // Armazenará os eventos dos agendamentos
+
+      // Seletores para os elementos do calendário
+      const calendarMonthYearEl = document.getElementById('calendar-month-year');
+      const calendarGridWeekdaysEl = document.querySelector('#content-calendar .calendar-grid-weekdays');
+      const calendarGridDaysEl = document.querySelector('#content-calendar .calendar-grid-days');
+      const calendarTooltipEl = document.querySelector('.calendar-event-tooltip');
+      const calPrevBtn = document.getElementById('calendar-prev-month');
+      const calNextBtn = document.getElementById('calendar-next-month');
+
+      function getScheduledEventsFromDOM() {
+        const events = [];
+        document.querySelectorAll('#content-scheduled .card.scheduled').forEach(card => {
+          if (card.dataset.eventDate && card.dataset.eventTime && card.dataset.eventTitle) {
+            events.push({
+              id: card.dataset.eventId || `evt-${Date.now()}-${Math.random()}`,
+              title: card.dataset.eventTitle,
+              date: card.dataset.eventDate,
+              time: card.dataset.eventTime,
+              locationName: card.dataset.eventLocationName || '',
+              personName: card.dataset.eventPersonName || '',
+              notes: card.dataset.eventNotes || ''
+            });
+          }
+        });
+        return events;
+      }
+
+      function renderCalendar(year, month) { // month é 0-indexed
+        if (!calendarGridDaysEl || !calendarMonthYearEl || !calendarGridWeekdaysEl) {
+          console.error("Elementos do calendário não encontrados no DOM.");
+          return;
+        }
+
+        calendarGridWeekdaysEl.innerHTML = '';
+        const weekdays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+        weekdays.forEach(dayName => {
+          const weekdayDiv = document.createElement('div');
+          weekdayDiv.classList.add('calendar-weekday');
+          weekdayDiv.textContent = dayName;
+          calendarGridWeekdaysEl.appendChild(weekdayDiv);
+        });
+
+        calendarGridDaysEl.innerHTML = '';
+        const tempDate = new Date(year, month, 1);
+        calendarMonthYearEl.textContent = `${tempDate.toLocaleDateString('pt-BR', { month: 'long' })} ${tempDate.getFullYear()}`;
+
+        const firstDayOfMonth = new Date(year, month, 1).getDay(); // 0 (Dom) - 6 (Sáb)
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let i = 0; i < firstDayOfMonth; i++) {
+          const emptyDayDiv = document.createElement('div');
+          emptyDayDiv.classList.add('calendar-day', 'empty');
+          calendarGridDaysEl.appendChild(emptyDayDiv);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayDiv = document.createElement('div');
+          dayDiv.classList.add('calendar-day');
+          const dayNumberSpan = document.createElement('span');
+          dayNumberSpan.classList.add('day-number');
+          dayNumberSpan.textContent = day;
+          dayDiv.appendChild(dayNumberSpan);
+
+          const today = new Date();
+          if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+            dayDiv.classList.add('today');
+          }
+
+          const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+          const eventsForDay = scheduledEventsData.filter(event => event.date === dateStr);
+
+          if (eventsForDay.length > 0) {
+            dayDiv.classList.add('has-event');
+            eventsForDay.forEach(event => {
+              const eventMarker = document.createElement('div');
+              eventMarker.classList.add('event-marker');
+              eventMarker.textContent = event.title.length > 12 ? event.title.substring(0, 9) + "..." : event.title;
+              eventMarker.dataset.eventId = event.id;
+              dayDiv.appendChild(eventMarker);
+
+              eventMarker.addEventListener('mouseenter', (e) => showCalendarTooltip(e, event));
+              eventMarker.addEventListener('mouseleave', hideCalendarTooltip);
+              // O clique no evento do calendário não fará nada além do tooltip por enquanto,
+              // pois o modal de detalhes do agendamento não estava no HTML original.
+            });
+          }
+          calendarGridDaysEl.appendChild(dayDiv);
+        }
+        const totalCellsRendered = firstDayOfMonth + daysInMonth;
+        const remainingEmptyCells = (7 - (totalCellsRendered % 7)) % 7;
+        for (let i = 0; i < remainingEmptyCells; i++) {
+          const emptyDayDiv = document.createElement('div');
+          emptyDayDiv.classList.add('calendar-day', 'empty');
+          calendarGridDaysEl.appendChild(emptyDayDiv);
+        }
+      }
+
+      function showCalendarTooltip(mouseEvent, event) {
+        if (!calendarTooltipEl) return;
+        calendarTooltipEl.innerHTML = `<strong>${event.title}</strong>
+                                      ${event.time ? `Horário: ${event.time}<br>` : ''}
+                                      ${event.locationName ? `Local: ${event.locationName}<br>` : ''}
+                                      ${event.personName ? `Com: ${event.personName}` : ''}`;
+        calendarTooltipEl.style.display = 'block';
+        const targetRect = mouseEvent.target.getBoundingClientRect();
+        const tooltipRect = calendarTooltipEl.getBoundingClientRect();
+        let top = targetRect.bottom + window.scrollY + 5;
+        let left = targetRect.left + window.scrollX + (targetRect.width / 2) - (tooltipRect.width / 2);
+        if (left < 0) left = 5;
+        if (left + tooltipRect.width > window.innerWidth) left = window.innerWidth - tooltipRect.width - 5;
+        if (top + tooltipRect.height > window.innerHeight + window.scrollY) {
+          top = targetRect.top + window.scrollY - tooltipRect.height - 5;
+        }
+        if (top < window.scrollY) top = window.scrollY + 5; // Previne que vá para cima da tela
+        calendarTooltipEl.style.left = `${left}px`;
+        calendarTooltipEl.style.top = `${top}px`;
+      }
+      function hideCalendarTooltip() { if (calendarTooltipEl) calendarTooltipEl.style.display = 'none'; }
+
+      if (calPrevBtn) {
+        calPrevBtn.addEventListener('click', () => {
+          currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+          renderCalendar(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth());
+        });
+      }
+      if (calNextBtn) {
+        calNextBtn.addEventListener('click', () => {
+          currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+          renderCalendar(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth());
+        });
+      }
+
+      function initializeCalendar() {
+        scheduledEventsData = getScheduledEventsFromDOM();
+        const today = new Date();
+        currentCalendarDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        renderCalendar(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth());
+      }
+
+      // Se quiser que o calendário seja carregado imediatamente se for a aba padrão (não é o caso aqui):
+      // if (document.getElementById('tab-calendar')?.classList.contains('active')) {
+      //   initializeCalendar();
+      // }
+
+    }); // Fim do DOMContentLoaded
   </script>
 </body>
+
+</html>
+</script>
+</body>
+
 </html>
